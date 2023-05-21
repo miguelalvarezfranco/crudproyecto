@@ -39,7 +39,8 @@ const SchemaCliente = new mongoose.Schema({
         required:true,
     }
 
-
-
-
 })
+
+const cliente = mongoose.model('cliente', SchemaCliente)
+
+module.exports = cliente;
