@@ -39,7 +39,4 @@ const SchemaCliente = new mongoose.Schema({
         required:true,
     }
 
-
-
-
-})
+});
