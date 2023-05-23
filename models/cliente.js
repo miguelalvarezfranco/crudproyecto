@@ -16,19 +16,8 @@ const SchemaCliente = new mongoose.Schema({
     ubicacion:{
         type:String,
         required:true,
-
-    },
-    longitud:{
-        type:String,
-        required:true,
-    },
-    latitud:{
-        type:String,
-        required:true,
-    },
-    nivelZoom:{
-        type:String,
-        required:true,
+        "centro":[longitud, latitud],
+        "niveldezoom":Number
     },
     totalComprado:{
         type:String,
