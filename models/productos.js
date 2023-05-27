@@ -1,6 +1,6 @@
 const mongoose = require('../config/conexion');
 
-const SchemaProductos = new mongoose.Schema({
+const SchemaProducto = new mongoose.Schema({
     referencia:{
         type:String,
         required:true,
@@ -20,17 +20,14 @@ const SchemaProductos = new mongoose.Schema({
     stock:{
         type:String,
     },
-    imagen:{
-        type:Image
-    },
     habilitado:{
         type:String,
     }
 
 })
 
-const productos = mongoose.model('productos', SchemaProductos)
+const producto = mongoose.model('producto', SchemaProducto)
 
-module.exports = productos;
+module.exports = producto;
 
 

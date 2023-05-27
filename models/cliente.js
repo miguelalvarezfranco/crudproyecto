@@ -8,35 +8,26 @@ const SchemaCliente = new mongoose.Schema({
     },
     telefono:{
         type:Number,
-        required:true,
-        min:0,
-        maximo:1000
+    
 
     },
     ubicacion:{
-        type:String,
-        required:true,
-
-    },
-    longitud:{
-        type:String,
-        required:true,
-    },
-    latitud:{
-        type:String,
-        required:true,
-    },
-    nivelZoom:{
-        type:String,
-        required:true,
+    
+            centro:{
+                type:Number,
+            },
+            zoom:{
+                type:Number
+            }
+    
     },
     totalComprado:{
-        type:String,
-        required:true,
+        type:Number,
+        
     },
     histoticoDeCompras:{
-        type:String,
-        required:true,
+        type:Number,
+        
     }
 
 })
