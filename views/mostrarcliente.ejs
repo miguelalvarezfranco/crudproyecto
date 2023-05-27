@@ -8,26 +8,30 @@
 </head>
 <body>
 
-    <form action="agregar" method="POST">
+    <form action="/api/v1/agregar" method="post">
         <div class="form-group">
             <label for="text">nombre</label>
-            <input type="text" class="form-control" id="" name="id"  placeholder="id">
+            <input type="text" class="form-control" id="" name="nombre"  placeholder="nombre">
         </div>
         <div class="form-group">
             <label for="text">telefono</label>
-            <input type="text" class="form-control" id="" name="nombre" placeholder="nombre">
+            <input type="text" class="form-control" id="" name="telefono" placeholder="telefono">
         </div>
         <div class="form-group">
             <label for="text">ubicacion</label>
-            <input type="text" class="form-control" id="" name="raza" placeholder="raza">
+            <input type="text" class="form-control" id="" name="ubicacion" placeholder="ubicacion">
+        </div>
+        <div class="form-group">
+            <label for="text">centro</label>
+            <input type="text" class="form-control" id="" name="centro" placeholder="centro">
         </div>
         <div class="form-group">
               <label for="text">totalcomprado</label>
-              <input type="text" class="form-control" id="" name="comida" placeholder="comida">
+              <input type="text" class="form-control" id="" name="totalcomprado" placeholder="totalcomprado">
         </div>
         <div class="form-group">
               <label for="text">historicodecompras</label>
-              <input type="text" class="form-control" id="" name="comida" placeholder="comida">
+              <input type="text" class="form-control" id="" name="historicodecompras" placeholder="historicodecompras">
         </div>
             <input type="submit" value="enviar"class="btn btn-primary">
           

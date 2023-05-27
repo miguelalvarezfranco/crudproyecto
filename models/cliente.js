@@ -4,28 +4,34 @@ const SchemaCliente = new mongoose.Schema({
     nombre:{
         type:String,
         required:true,
-        default:"no registro"
+        default:"no registro",
     },
     telefono:{
         type:Number,
         required:true,
-        min:0,
-        maximo:1000
+
 
     },
     ubicacion:{
         type:String,
         required:true,
-        "centro":[longitud, latitud],
-        "niveldezoom":Number
+    
     },
-    totalComprado:{
+    centro:{
         type:String,
         required:true,
     },
-    histoticoDeCompras:{
-        type:String,
+    totalcomprado:{
+        type:Number,
         required:true,
-    }
+    },
+    historicodecompras:{
+        type:String,
+        required:false,
+    },
 
 });
+
+const cliente= mongoose.model('cliente', SchemaCliente);
+
+module.exports = cliente;

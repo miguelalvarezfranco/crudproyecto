@@ -13,13 +13,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 
-const Mrouter =require('./routes/enrutamiento');
-app.use('/api/v1',Mrouter);
+const Mirouter =require('./routes/enrutamiento');
+app.use('/api/v1',Mirouter);
 
 
 app.listen(PORT, ()=>{
     console.log(`el servidro esta en linea ...!! ${PORT}`);
-})  
+});
 
 
 
