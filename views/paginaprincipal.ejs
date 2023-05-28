@@ -1,21 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<title>Bootstrap Example</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Carrusel HTML/CSS</title>
+    <style>
+        .carousel {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel ul {
+            list-style: none;
+            width: 300%;
+            height: 100%;
+            transition: left 0.6s ease-in-out;
+        }
+
+        .carousel li {
+            float: left;
+            width: 33.33%;
+            height: 100%;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .carousel-nav button {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            border: none;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .carousel-nav button.active {
+            background: #333;
+        }
+    </style>
 </head>
+
 <body>
+    <button type="submit">registrarse</button>
+    <div class="carousel">
+        <ul>
+            <li><img src="https://source.unsplash.com/featured/400x202" alt="Imagen 1"></li>
+            <li><img src="imagenes/CAMISA_PAUL_VERDE--3-.webp" alt="Imagen 2"></li>
+            <li><img src="https://source.unsplash.com/featured/300x202" alt="Imagen 3"></li>
+        </ul>
+    </div>
 
+    <div class="carousel-nav">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+    </div>
 
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const carouselList = carousel.querySelector('ul');
+        const carouselItems = carousel.querySelectorAll('li');
+        const navButtons = document.querySelectorAll('.carousel-nav button');
 
+        let currentIndex = 0;
 
+        navButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                navButtons[currentIndex].classList.remove('active');
+                carouselList.style.left = `-${index * 100}%`;
+                button.classList.add('active');
+                currentIndex = index;
+            });
+        });
+    </script>
 </body>
-</html>
 
-</body>
 </html>

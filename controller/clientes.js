@@ -1,7 +1,7 @@
 const cliente = require('../models/cliente');
-const producto = require('../models/productos');
-
 const router = require('../routes/enrutamiento.js');
+
+
 //CLIENTES
 exports.cliente = async(req, res)=>{
     let listacliente = await  cliente.find();
@@ -65,7 +65,7 @@ exports.actualizarcliente = async(req,res) => {
 
 
 exports.producto = async(req, res)=>{
-    let listaproducto = await  producto.find();
+    let listaproducto = await  productos.find();
     console.log(listaproducto);
 
     res.render( "listarproductos",{
@@ -80,7 +80,7 @@ exports.mostrarproducto =(req, res)=>{ //render asocia un documento que contiene
 }
 
 exports.agregarproducto= (req, res) => {
-    const productos =  new producto({
+    const producto =  new productos({
         referencia: req.body.referencia,
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
@@ -93,7 +93,7 @@ exports.agregarproducto= (req, res) => {
 
     });
 
-    productos.save()
+    producto.save()
     res.redirect('/api/v1/productos');
     console.log('productos');
 

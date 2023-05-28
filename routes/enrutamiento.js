@@ -17,6 +17,4 @@ router.get('/paginaprincipal',rutclien.mostrarpagina);
 
 
 
-
-
 module.exports = router;
