@@ -61,11 +61,13 @@ exports.actualizarcliente = async(req,res) => {
 
 
 
+
+
  //PRODUCTOS
 
 
 exports.producto = async(req, res)=>{
-    let listaproducto = await  productos.find();
+    let listaproducto = await  producto.find();
     console.log(listaproducto);
 
     res.render( "listarproductos",{
@@ -80,7 +82,7 @@ exports.mostrarproducto =(req, res)=>{ //render asocia un documento que contiene
 }
 
 exports.agregarproducto= (req, res) => {
-    const producto =  new productos({
+    const producto =  new producto({
         referencia: req.body.referencia,
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
