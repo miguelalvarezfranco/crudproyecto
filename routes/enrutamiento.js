@@ -1,6 +1,7 @@
 const express = require('express');
 const rutclien = require ('../controller/clientes')
-const rutproduct = require ('../controller/productos') //se traen los documentos de la carpeta controlle//
+const rutproduct = require ('../controller/productos')
+const rutvende = require('../controller/vendedores') //se traen los documentos de la carpeta controlle//
  //se traen los documentos de la carpeta controlle//
 
 const router = express.Router();
@@ -18,6 +19,13 @@ router.get('/mostrarcliente',rutclien.mostrarcliente);
 router.get('/productos',rutproduct.producto);
 router.post('/agregarproducto',rutproduct.agregarproducto);
 router.get('/mostrarproducto',rutproduct.mostrarproducto);
+
+
+//VENDEDORES
+router.get('/vendedores',rutvende.vendedor);
+router.get('/',rutvende.vendedor);
+
+
 
 
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">DOCUMENTO</th>
+            <th scope="col">VENTASDESPACHADAS</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            <%vendedor.forEach(function(elemento){%>
+                <tr>
+                    <td>
+                        <%=elemento.nombre%>
+                    </td>
+                    <td>
+                        <%=elemento.documento%>
+                    </td>
+                    <td>
+                        <%=elemento.ventasdespachadas%>
+                    </td>
+                    <td>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenarformulario(`<%=elemento.nombre %>`, `<%=elemento.documento %>`,`<%=elemento.ventasdespachadas%>` )" data-target="#update">Actualizar</button>
+                        <a href="eliminar/<%=elemento.nombre%>" class="button btn-success">eliminar</a>
+                    </td>
+                    
+                </tr>
+                    
+            <%})%>
+        </tbody>
+</body>
+</html>
