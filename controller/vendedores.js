@@ -12,13 +12,13 @@ exports.vendedor = async(req, res)=>{
 
 };
 
-exports.mostrarvendedores =(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
-    res.render('mostrarvendedores');
+exports.mostrarvendedor =(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
+    res.render('mostrarvendedor');
 
 }
 
 exports.agregarvendedor= (req, res) => {
-    const vendedores =  new this.vendedor({
+    const vendedor =  new this.vendedor({
         nombre: req.body.nombre,
         documento: req.body.documento,
         ventasdespachadas: req.body.ventasdespachadas,
