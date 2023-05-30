@@ -1,22 +1,25 @@
 const mongoose = require('../config/conexion');
 
-const Schemaproductos= new mongoose.Schema({
+const Schemavendedores= new mongoose.Schema({
     nombre:{
         type:String,
         required:true,
         default:"no registro"
     },
     documento:{
-        type:String,
+        type:Number,
         required:true,
         
 
     },
     ventasdepachadas:{
-        type:String,
-        required:true,
-
+        type:Number,
+        required:false,
     },
 
 
 });
+
+const vendedor = mongoose.model('vendedores', Schemavendedores)
+
+module.exports = vendedor;

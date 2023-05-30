@@ -1,4 +1,4 @@
-const vendedores = require('../models/productos')
+const vendedores = require('../models/vendedores')
 const router = require('../routes/enrutamiento.js');
 
 exports.vendedor = async(req, res)=>{
@@ -12,13 +12,13 @@ exports.vendedor = async(req, res)=>{
 
 };
 
-exports.mostrarvendedor =(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
-    res.render('mostrarvendedor');
+exports.mostrarvendedores =(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
+    res.render('mostrarvendedores');
 
 }
 
-exports.agregarvendedor= (req, res) => {
-    const vendedor =  new this.vendedor({
+exports.agregarvendedor = (req, res) => {
+    const vendedor =  new vendedores({
         nombre: req.body.nombre,
         documento: req.body.documento,
         ventasdespachadas: req.body.ventasdespachadas,

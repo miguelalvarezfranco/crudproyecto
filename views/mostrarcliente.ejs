@@ -4,11 +4,34 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .titulo{
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .formulario{
+            margin-top: 30px;
+            border-color: black;
+            width: 750px;
+            justify-content: center;
+            border: solid 1px;
+            padding: 20px;
+            margin-right: 10px;
+        }
+       
 
+        
+    </style>
 </head>
 <body>
+    <h1 class="titulo">Registrar Clientes</h1>
 
-    <form action="/api/v1/agregar" method="post">
+    <div class="container">
+        <div class="row justify-content-center">
+            
+          
+
+    <form action="/api/v1/agregar" method="post" class="formulario">
         <div class="form-group">
             <label for="text">nombre</label>
             <input type="text" class="form-control" id="" name="nombre"  placeholder="nombre">
@@ -29,8 +52,8 @@
             <label for="text">historicodecompras</label>
             <input type="checkbox" class="form-control" id="" name="historicodecompras" placeholder="historicodecompras">
         </div>
-            <input type="submit" value="enviar"class="btn btn-primary">
-        
+
+            <input type="submit" value="enviar"class="btn btn-primary" >
     </form>
         
     

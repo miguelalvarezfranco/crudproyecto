@@ -23,8 +23,8 @@ router.get('/mostrarproducto',rutproduct.mostrarproducto);
 
 //VENDEDORES
 router.get('/vendedores',rutvende.vendedor);
-router.get('/agregarvendedor',rutvende.vendedor);
-router.get('/mostrarvendedor',rutvende.mostrarvendedor);
+router.post('/agregarvendedor',rutvende.agregarvendedor);
+router.get('/mostrarvendedores',rutvende.mostrarvendedores);
 
 
 //PAGINA PRINCIPAL

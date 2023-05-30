@@ -7,11 +7,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <style>
+    .titulo{
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .table{
+        border-color: black;
+        width: 950px;
+        justify-content: center;
+        border-radius: 30px;
+    }
+
     
 </style>
+
 <body>
-    <table class="table">
+
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-8">
+
+    <h1 class="titulo">Tabla Clientes</h1>
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th scope="col">NOMBRE</th>
@@ -19,6 +38,9 @@
             <th scope="col">UBICACION</th>
             <th scope="col">TOTALCOMPRADO</th>
             <th scope="col">HISTORICODECOMPRAS</th>
+            <th scope="col">ACCIONES</th>
+
+
 
         </tr>
         </thead>
@@ -40,7 +62,10 @@
                         <%=elemento.historicodecompras%>
                     </td>
                     <td>
-                        <button type="button" class="button button1" data-toggle="modal" onclick="llenarformulario(`<%=elemento.nombre %>`, `<%=elemento.telefono %>`,`<%=elemento.ubicacion%>`, `<%=elemento.centro%>`,`<%=elemento.totalcomprado%>`,`<%=elemento.historicodecompras%>` )" data-target="#update">Actualizar</button>
+                        <%=elemento.acciones%>
+                    </td>
+                    <td>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenarformulario(`<%=elemento.nombre %>`, `<%=elemento.telefono %>`,`<%=elemento.ubicacion%>`, `<%=elemento.centro%>`,`<%=elemento.totalcomprado%>`,`<%=elemento.historicodecompras%>`,`<%=elemento.acciones%>` )" data-target="#update">Actualizar</button>
                         <a href="eliminar/<%=elemento.nombre%>" class="button btn-success">eliminar</a>
                     </td>
                     
