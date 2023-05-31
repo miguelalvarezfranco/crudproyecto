@@ -39,6 +39,5 @@ router.get('/mostrarventas',rutven.mostrarventas);
 //PAGINA PRINCIPAL
 router.get('/paginaprincipal',rutclien.mostrarpagina);
 
-router.get('/iniciosesion', rutclien.mostrarinicio);
 
 module.exports = router;
