@@ -22,6 +22,9 @@ exports.mostrarpagina =(req, res)=>{ //render asocia un documento que contiene l
     res.render('paginaprincipal');
 
 }
+
+
+
 exports.agregarcliente= (req, res) => {
     const clientes =  new cliente({
         nombre: req.body.nombre,

@@ -3,35 +3,35 @@ const mongoose = require('../config/conexion');
 const SchemaVentas = new mongoose.Schema({
     productosventa:{
         type:String,
-        required:true,
+        required:false,
     },
     subtotalventa:{
         type:Number,
-        required:true,
+        required:false,
     },
     fechadelaventa:{
         type:Date,
-        required:true,
+        required:false,
     },
     impuesto:{
         type:Number,
-        required:true,
+        required:false,
     },
     totalventa:{
         type:Number,
-        required:true,
+        required:false
     },
     clientequerealizacompra:{
         type:String,
-        required:true,
+        required:false,
     },
     vendedorquedespachaventa:{
         type:String,
-        required:true,
+        required:false,
     }
 
 });
 
-const ventas = mongoose.model('ventas', SchemaVentas)
+const venta = mongoose.model('ventas', SchemaVentas)
 
-module.exports = ventas;
+module.exports = venta;

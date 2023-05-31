@@ -27,9 +27,6 @@ exports.agregarventa = (req, res) => {
         clientequerealizacompra: req.body.clientequerealizacompra,
         vendedorquedespachaventa: req.body.vendedorquedespachaventa,
         
-
-
-
     });
 
     venta.save()

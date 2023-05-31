@@ -37,17 +37,13 @@
             <th scope="col">TOTAL VENTA</th>
             <th scope="col">CLIENTE QUE REALIZA LA COMPRA</th>
             <th scope="col">VENDEDOR QUE DESPACHA LA VENTA</th>
-
-
-
-
             <th scope="col">ACCIONES</th>
 
 
         </tr>
         </thead>
         <tbody>
-            <%venta.forEach(function(elemento){%>
+            <%Venta.forEach(function(elemento){%>
                 <tr>
                     <td>
                         <%=elemento.productosventa%>
@@ -56,22 +52,22 @@
                         <%=elemento.subtotalventa%>
                     </td>
                     <td>
-                        <%=elemento.fecha de la venta%>
+                        <%=elemento.fechadelaventa%>
                     </td>
                     <td>
                         <%=elemento.impuesto%>
                     </td>
                     <td>
-                        <%=elemento.total venta%>
+                        <%=elemento.totalventa%>
                     </td>
                     <td>
-                        <%=elemento.cliente que realiza la compra%>
+                        <%=elemento.clientequerealizalacompra%>
                     </td>
                     <td>
-                        <%=elemento.vendedor que despacha la venta%>
+                        <%=elemento.vendedorquedespachalaventa%>
                     </td>
                     <td>
-                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento.productosventa %>`, `<%=elemento.subtotalventa %>`,`<%=elemento.fecha de la venta%>`,`<%=elemento.impuesto%>`,`<%=elemento.total venta%>`,`<%=elemento.cliente que realiza la compra%>`,`<%=elemento.vendedor que despacha la venta%>` )" data-target="#update">Actualizar</button>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento.productosventa %>`, `<%=elemento.subtotalventa %>`,`<%=elemento.fechadelaventa%>`,`<%=elemento.impuesto%>`,`<%=elemento.totalventa%>`,`<%=elemento.clientequerealizalacompra%>`,`<%=elemento.vendedorquedespachalaventa%>` )" data-target="#update">Actualizar</button>
                         <a href="eliminar/<%=elemento.nombre%>" class="button btn-success">eliminar</a>
                     </td>
                     
@@ -119,11 +115,11 @@
                     <input type="text" class="form-control" id="actualizartotalventa" name="totaventa" placeholder="tota venta">
                 </div>
                 <div class="form-group">
-                    <label for="text">cliente que realiza la compra</label>
+                    <label for="text">clientequerealizalacompra</label>
                     <input type="text" class="form-control" id="actualizarclientequerealizalacompra" name="clientenquerealizalacompra" placeholder="cliente que realiza la compra">
                 </div>
                 <div class="form-group">
-                    <label for="text">vendedor que despacha la venta</label>
+                    <label for="text">vendedorquedespachalaventa</label>
                     <input type="text" class="form-control" id="actualizarvendedorquedespachalaventa " name="vendedorquedespachalaventa" placeholder="vendedor que despacha la venta">
                 </div>
              
