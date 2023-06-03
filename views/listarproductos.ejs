@@ -39,6 +39,8 @@
             <th scope="col">STOCK</th>
             <th scope="col">HABILITADO</th>
             <th scope="col">ACCIONES</th>
+            <th scope="col">imagen</th>
+
 
             
 
@@ -67,7 +69,10 @@
                         <%=elemento.habilitado%>
                     </td>
                     <td>
-                        <button type="button" class="button button1" data-toggle="modal" onclick="llenarformulario(`<%=elemento.referencia %>`, `<%=elemento.nombre %>`,`<%=elemento.descripcion%>`, `<%=elemento.precio%>`,`<%=elemento.stock%>`,`<%=elemento.imagen%>`,`<%=elemento.habilitado%>` )" data-target="#update">Actualizar</button>
+                        <%=elemento.imagen%>
+                    </td>
+                    <td>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenarformulario(`<%=elemento.referencia %>`, `<%=elemento.nombre %>`,`<%=elemento.descripcion%>`, `<%=elemento.precio%>`,`<%=elemento.stock%>`,`<%=elemento.imagen%>`,`<%=elemento.habilitado%>`, `<%=elemento.imagen%>` )" data-target="#update">Actualizar</button>
                         <a href="eliminar/<%=elemento.nombre%>" class="button btn-success">eliminar</a>
                     </td>
                     
@@ -116,12 +121,14 @@
             <div class="form-group">
                 <label for="text">habilitado</label>
                 <input type="text" class="form-control" id="actualizarhabilitado" name="habilitado" placeholder="habilitado">
-        </div>
+            </div>
+            <div class="form-group">
+                <label for="text">imagen</label>
+                <input type="text" class="form-control" id="actualizarimagen" name="imagen" placeholder="imagen">
+            </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
-            
-                
             </form>
         
             

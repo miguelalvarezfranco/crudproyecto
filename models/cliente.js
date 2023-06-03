@@ -14,7 +14,7 @@ const SchemaCliente = new mongoose.Schema({
     ubicacion:{
     
             centro:{
-                type:Number,
+                type:Array,
             },
             zoom:{
                 type:Number

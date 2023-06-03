@@ -3,10 +3,10 @@ const rutclien = require ('../controller/clientes')
 const rutproduct = require ('../controller/productos')
 const rutvende = require('../controller/vendedores')
 const rutven = require('../controller/ventas') //se traen los documentos de la carpeta controlle//
- //se traen los documentos de la carpeta controlle//
- //se traen los documentos de la carpeta controlle//
-
 const router = express.Router();
+
+
+
 //clientes
 router.get('/clientes',rutclien.cliente);
 router.post('/agregar',rutclien.agregarcliente);

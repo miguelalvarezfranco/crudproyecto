@@ -22,7 +22,11 @@ const SchemaProducto = new mongoose.Schema({
     },
     habilitado:{
         type:String,
+    }, 
+    imagen:{
+        type:String
     }
+
 
 });
 
