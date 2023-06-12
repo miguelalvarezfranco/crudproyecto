@@ -12,6 +12,9 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
+app.get('/prueba', (req, res) => {
+    res.render('prueba')
+})
 
 const Mirouter =require('./routes/enrutamiento');
 app.use('/api/v1',Mirouter);
