@@ -43,7 +43,7 @@ exports.agregarcliente= (req, res) => {
 };
 
 exports.eliminar = async (req, res)=>{
-    const id = req.params.id
+    const nombre = req.params.nombre
     await cliente.findByIdAndDelete({'nombre':nombre});
 
     res.redirect('/api/v1/clientes');

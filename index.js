@@ -16,6 +16,12 @@ app.get('/prueba', (req, res) => {
     res.render('prueba')
 })
 
+app.get('/catalogo', (req, res) => {
+    res.render('catalogo')
+})
+
+/*app.post('/descargarexcel')*/
+
 const Mirouter =require('./routes/enrutamiento');
 app.use('/api/v1',Mirouter);
 
@@ -24,6 +30,11 @@ app.use('/api/v1',Mirouter);
 app.listen(PORT, ()=>{
     console.log(`el servidor esta en linea ...!! ${PORT}`);
 })
+
+
+
+
+
 
 
 
