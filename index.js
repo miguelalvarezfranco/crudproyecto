@@ -12,12 +12,18 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
-app.get('/prueba', (req, res) => {
-    res.render('prueba')
+
+
+app.get('/carrito', (req, res) => {
+    res.render('carrito')
 })
 
-app.get('/catalogo', (req, res) => {
+/*app.get('/catalogo', (req, res) => {
     res.render('catalogo')
+})*/
+
+app.get('grafica', (req, res)=>{
+    res.render('grafica')
 })
 
 /*app.post('/descargarexcel')*/
