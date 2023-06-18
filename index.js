@@ -18,9 +18,9 @@ app.get('/carrito', (req, res) => {
     res.render('carrito')
 })
 
-app.get('/catalogo', (req, res) => {
+/*app.get('/catalogo', (req, res) => {
     res.render('catalogo')
-})
+})*/
 
 app.get('grafica', (req, res)=>{
     res.render('grafica')
