@@ -4,7 +4,7 @@ const rutproduct = require ('../controller/productos')
 const rutvende = require('../controller/vendedores')
 const rutven = require('../controller/ventas') //se traen los documentos de la carpeta controlle//
 const reutemail = require('../controller/nodemailer')
-const rutExcel = require('../controller/productos.')
+//const rutExcel = require('../controller/productos.')//
 const router = express.Router();
 
 

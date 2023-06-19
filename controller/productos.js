@@ -43,7 +43,7 @@ exports.agregarproducto= (req, res) => {
 
 
 
-const xl = require('excel4node');
+/*const xl = require('excel4node');
 const path = require('path')
 const fs = require('fs');
 
@@ -125,4 +125,4 @@ exports.descargarExcel = async(req, res) => {
     });
 
     
-}
+}*/
