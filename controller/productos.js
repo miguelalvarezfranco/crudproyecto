@@ -39,6 +39,8 @@ exports.agregarproducto= (req, res) => {
 
 };
 
+
+
 // GENERAR TABLA EXCEL DE LOS DATOS SOBRE LOS PRODUCTOS ----------------------------------------
 
 

@@ -15,7 +15,7 @@ router.get('/clientes',rutclien.cliente);
 router.post('/agregar',rutclien.agregarcliente);
 router.get('/mostrarcliente',rutclien.mostrarcliente);
 //router.get('/eliminar', rutclien.eliminar);
-//router.post('/actualizar',rutclien.actualizarcliente);
+router.post('/actualizar',rutclien.actualizarcliente);
 
 
 

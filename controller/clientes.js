@@ -51,21 +51,18 @@ exports.eliminar = async (req, res)=>{
 };
 
 exports.actualizarcliente = async(req,res) => {
-    const filtro = {nombre: req.body.nombreactualizar};
+   
     const update = {nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, centro: req.body.centro, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras};
 
-
     await cliente.findOneAndUpdate(filtro, update);
-
     res.redirect('/api/v1/clientes');
     
 };
 
 
 
-
-
-
  //PRODUCTOS
+
+ // const filtro = {_nombre: req.body.nombreactualizar};//
 
 
