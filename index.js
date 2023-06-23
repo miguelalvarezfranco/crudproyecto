@@ -18,6 +18,11 @@ app.get('/carrito', (req, res) => {
     res.render('carrito')
 })
 
+
+app.get('/inicio', (req, res) => {
+    res.render('inicio')
+})
+
 /*app.get('/catalogo', (req, res) => {
     res.render('catalogo')
 })*/

@@ -1,6 +1,13 @@
 const mongoose = require('../config/conexion');
 
 const SchemaCliente = new mongoose.Schema({
+    _id:{
+        type: Number,
+        required:true,
+        min:0,
+        max:1000
+    
+    },
     _nombre:{
         type:String,
         required:true,
