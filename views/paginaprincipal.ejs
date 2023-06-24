@@ -17,45 +17,32 @@
 <style>
     body {
         margin: 0;
-        padding: 0;
         font-family: Arial, sans-serif;
+    }
+    .container-nav{
+        position: sticky;
+        z-index: 3;
+        top: 0;
     }
 
     .navbar {
-        background-color: #333;
-        color: #fff;
         display: flex;
         justify-content: space-between;
-        padding: 1px;
+        height: 10vh;
+        background-color: #1b1b1b;
+        
     }
-
-    .navbar ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-
-
-    }
-
-    .navbar li {
-        margin-left: 300px;
-        margin-top: 10px;
-        padding: 2px;
-    }
-
-    .navbar li a {
+    .navbar-logo{
+        justify-self: start;
+        margin-left: 20px;
         color: #fff;
-        text-decoration: none;
-        padding: 5px;
-        align-items: center;
-
+        cursor: pointer;
     }
-
-
-
-    .navbar li a:hover {
-        background-color: #2d2c2c;
+    .ver-carrito{
+        font-size: 25px;
+        margin-right: 20px;
+        margin-top: 2.1vh;
+        cursor: pointer;
     }
 
     .formu input {
@@ -97,25 +84,29 @@
         margin-left: 45px;
 
     }
+    
+
+   
+   
 
 
 </style>
 
 <body>
+    
+    <div class="container-nav">
 
+        <nav class="navbar">
+            <h1 class="navbar-logo">NUESTROS PRODUCTOS</h1>
+            <h1 class="ver-carrito" id="verCarrito">🛒</h1>
 
-    <div class="navbar">
-
-        <ul>
-
-            <li><a href="/carrito"><i class="carrito"></i> Carrito de compras</a></li>
-
-        </ul>
+        </nav>
 
     </div>
 
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+
+    <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin-right: 25px;">
         iniciar sesion
     </button>
 
@@ -209,7 +200,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="/carrito" class="btn btn-primary">Agregar al carrito </a>
             </div>
         </div>
@@ -219,7 +209,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="/carrito" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -229,7 +218,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="/carrito" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -239,7 +227,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -249,7 +236,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -259,7 +245,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="" class="btn btn-primary Agregar-carrito">Agregar al carrito</a>
             </div>
         </div>
@@ -269,7 +254,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -279,7 +263,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -289,7 +272,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -299,7 +281,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -309,7 +290,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -319,7 +299,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -329,7 +308,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -339,7 +317,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
@@ -349,7 +326,6 @@
             <div class="card-body">
                 <h5 class="card-title">Busos</h5>
                 <p class="card-text">precio : 20.000</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <a href="#" class="btn btn-primary">Agregar al carrito</a>
             </div>
         </div>
