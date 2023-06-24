@@ -38,9 +38,9 @@ exports.agregarproducto= (req, res) => {
 
 };
 
-exports.eliminar = async (req, res)=>{
-    const id = req.params.id
-    await productos.findByIdAndDelete({'_id':id});
+exports.eliminarproducto = async (req, res)=>{
+    const idc = req.params.idc
+    await productos.findByIdAndDelete({'_idc':idc});
 
     res.redirect('/api/v1/productos');
 
@@ -48,7 +48,7 @@ exports.eliminar = async (req, res)=>{
 
 exports.actualizarproducto = async(req,res) => {
 
-    const filtro = {_id: req.body.idactualizar};
+    const filtro = {_idc: req.body.idactualizar};
 
     const update = {referencia: req.body.referencia, nombre: req.body.nombre, descripcion: req.body.descripcion,  precio: req.body.precio, stock: req.body.stock, habilitado: req.body.habilitado, imagen: req.body.imagen};
     
