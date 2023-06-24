@@ -8,10 +8,10 @@ const SchemaCliente = new mongoose.Schema({
         max:1000
     
     },
-    _nombre:{
+    nombre:{
         type:String,
         required:true,
-        default:"no registro",
+    
 
     },
     telefono:{

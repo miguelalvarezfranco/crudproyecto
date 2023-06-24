@@ -1,5 +1,5 @@
 const cliente = require('../models/cliente');
-const router = require('../routes/enrutamiento.js');
+const router = require('../routes/enrutamiento');
 
 
 //CLIENTES
@@ -27,6 +27,7 @@ exports.mostrarpagina =(req, res)=>{ //render asocia un documento que contiene l
 
 exports.agregarcliente= (req, res) => {
     const clientes =  new cliente({
+        _id : req.body.id,
         nombre: req.body.nombre,
         telefono: req.body.telefono,
         ubicacion: req.body.ubicacion,
@@ -43,7 +44,7 @@ exports.agregarcliente= (req, res) => {
 };
 
 exports.eliminar = async (req, res)=>{
-    const id= req.params._id
+    const id = req.params.id
     await cliente.findByIdAndDelete({'_id':id});
 
     res.redirect('/api/v1/clientes');
@@ -52,9 +53,13 @@ exports.eliminar = async (req, res)=>{
 
 exports.actualizarcliente = async(req,res) => {
 
-    const filtro = {_id: req.body.nombreactualizar};
-    const update = {nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, centro: req.body.centro, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras};
+    const filtro = {_id: req.body.idactualizar};
+
+    const update = {nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion,  totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras};
+    
     await cliente.findOneAndUpdate(filtro, update);
+
+
     res.redirect('/api/v1/clientes');
     
 };
