@@ -1,6 +1,6 @@
 
 const productos = require('../models/productos')
-const router = require('../routes/enrutamiento.js');
+const router = require('../routes/enrutamiento');
 
 
 
@@ -30,8 +30,6 @@ exports.agregarproducto= (req, res) => {
         imagen: req.body.imagen,
         habilitado: req.body.habilitado, 
 
-
-
     });
 
     producto.save()
@@ -42,9 +40,9 @@ exports.agregarproducto= (req, res) => {
 
 exports.eliminar = async (req, res)=>{
     const id = req.params.id
-    await cliente.findByIdAndDelete({'_id':id});
+    await productos.findByIdAndDelete({'_id':id});
 
-    res.redirect('/api/v1/clientes');
+    res.redirect('/api/v1/productos');
 
 };
 
@@ -52,12 +50,12 @@ exports.actualizarproducto = async(req,res) => {
 
     const filtro = {_id: req.body.idactualizar};
 
-    const update = {nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion,  totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras};
+    const update = {referencia: req.body.referencia, nombre: req.body.nombre, descripcion: req.body.descripcion,  precio: req.body.precio, stock: req.body.stock, habilitado: req.body.habilitado, imagen: req.body.imagen};
     
-    await cliente.findOneAndUpdate(filtro, update);
+    await productos.findOneAndUpdate(filtro, update);
 
 
-    res.redirect('/api/v1/clientes');
+    res.redirect('/api/v1/productos');
     
 };
 

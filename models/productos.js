@@ -1,6 +1,12 @@
 const mongoose = require('../config/conexion');
 
 const SchemaProducto = new mongoose.Schema({
+    _id:{
+        type: Number,
+        required:true,
+        min:0,
+        max:1000
+    },
     referencia:{
         type:String,
         required:true,

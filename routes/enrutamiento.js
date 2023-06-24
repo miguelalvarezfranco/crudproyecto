@@ -24,12 +24,15 @@ router.post('/actualizar',rutclien.actualizarcliente);
 router.get('/productos',rutproduct.producto);
 router.post('/agregarproducto',rutproduct.agregarproducto);
 router.get('/mostrarproducto',rutproduct.mostrarproducto);
+router.get('/eliminar/:id', rutproduct.eliminar);
+router.post('/actualizar',rutproduct.actualizarproducto);
 
 
 //VENDEDORES
 router.get('/vendedores',rutvende.vendedor);
 router.post('/agregarvendedor',rutvende.agregarvendedor);
 router.get('/mostrarvendedores',rutvende.mostrarvendedores);
+
 
 
 //VENTAS
