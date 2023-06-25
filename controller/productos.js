@@ -43,7 +43,6 @@ exports.agregarproducto= (req, res) => {
 exports.eliminarproducto = async (req, res)=>{
     const id= req.params.id
     await productos.findByIdAndDelete({'_id':id});
-
     res.redirect('/api/v1/productos');
 
 };
