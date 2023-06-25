@@ -1,5 +1,7 @@
 const cliente = require('../models/cliente');
 const router = require('../routes/enrutamiento');
+const productos = require('../models/productos');
+
 
 
 //CLIENTES
@@ -18,11 +20,11 @@ exports.mostrarcliente =(req, res)=>{ //render asocia un documento que contiene 
 
 }
 
-exports.mostrarpagina =(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
-    res.render('paginaprincipal');
-
-}
-
+exports.mostrarpagina = async(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
+    let producto = await productos.find()
+    res.render('paginaprincipal' ,{
+        "producto": producto});
+    }
 
 
 exports.agregarcliente= (req, res) => {

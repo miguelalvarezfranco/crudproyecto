@@ -14,7 +14,7 @@ const router = express.Router();
 router.get('/clientes',rutclien.cliente);
 router.post('/agregar',rutclien.agregarcliente);
 router.get('/mostrarcliente',rutclien.mostrarcliente);
-router.get('/eliminar/:id', rutclien.eliminar);
+router.get('/eliminar/:idp', rutclien.eliminar);
 router.post('/actualizar',rutclien.actualizarcliente);
 
 
@@ -24,8 +24,8 @@ router.post('/actualizar',rutclien.actualizarcliente);
 router.get('/productos',rutproduct.producto);
 router.post('/agregarproducto',rutproduct.agregarproducto);
 router.get('/mostrarproducto',rutproduct.mostrarproducto);
-//router.get('/eliminarproducto/:idc', rutproduct.eliminarproducto);
-//router.post('/actualizarproducto',rutproduct.actualizarproducto);
+router.get('/eliminarproducto/:idc', rutproduct.eliminarproducto);
+router.post('/actualizarproducto',rutproduct.actualizarproducto);
 
 
 //VENDEDORES

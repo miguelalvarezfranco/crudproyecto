@@ -57,14 +57,14 @@
                                 <td>
                                     <%=elemento.ubicacion%>
                                 </td>
-                                <%=elemento.totalcomprado%>
-                                    </td>
-                                    <td>
-                                        <%=elemento.historicodecompras%>
-                                    </td>
-                                    <td>
-                                        <%=elemento.acciones%>
-                                    </td>
+                                    <%=elemento.totalcomprado%>
+                                </td>
+                                <td>
+                                    <%=elemento.historicodecompras%>
+                                </td>
+                                <td>
+                                    <%=elemento.acciones%>
+                                </td>
                                     <td>
                                         <button type="button" class="button button1" data-toggle="modal"
                                             onclick="actuformulario(`<%=elemento._id %>`, `<%=elemento.nombre %>`, `<%=elemento.telefono %>`,`<%=elemento.ubicacion%>`, `<%=elemento.centro%>`,`<%=elemento.totalcomprado%>`,`<%=elemento.historicodecompras%>` )"
@@ -130,12 +130,7 @@
                         </div>
                     </div>
 
-
-
-
                 </table>
-
-
 
                 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
                     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -149,7 +144,7 @@
 
                 <script>
                     function actuformulario(id, nombre, telefono, ubicacion, totalcomprado, historicodecompras) {
-                        actualizarid.value = id; 
+                        actualizarid.value = id;
                         actualizarnombrec.value = nombre;
                         actualizartelefonoc.value = telefono;
                         actualizarubicacionc.value = ubicacion;

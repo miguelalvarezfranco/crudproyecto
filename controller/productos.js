@@ -1,16 +1,18 @@
 
+const { Mongoose, default: mongoose } = require('mongoose');
+const producto = require('../models/productos');
 const productos = require('../models/productos')
 const router = require('../routes/enrutamiento');
 
 
 
 exports.producto = async(req, res)=>{
-    let listaproducto = await  productos.find();
-    console.log(listaproducto);
+    let listaproducto = await  productos.find({});
+   // console.log(listaproducto);
 
     res.render( "listarproductos",{
 
-        "producto":listaproducto,
+        "producto":listaproducto, 
     })
 
 };
@@ -34,13 +36,13 @@ exports.agregarproducto= (req, res) => {
 
     producto.save()
     res.redirect('/api/v1/productos');
-    console.log('productos');
+    //console.log('productos');
 
 };
 
 exports.eliminarproducto = async (req, res)=>{
-    const idc = req.params.idc
-    await productos.findByIdAndDelete({'_idc':idc});
+    const id= req.params.id
+    await productos.findByIdAndDelete({'_id':id});
 
     res.redirect('/api/v1/productos');
 
@@ -48,17 +50,14 @@ exports.eliminarproducto = async (req, res)=>{
 
 exports.actualizarproducto = async(req,res) => {
 
-    const filtro = {_idc: req.body.idactualizar};
+    const nuevo = {_id: new mongoose.Types.ObjectId(), referencia: req.body.referencia, nombre: req.body.nombre, descripcion: req.body.descripcion,  precio: req.body.precio, stock: req.body.stock, habilitado: req.body.habilitado, imagen: req.body.imagen};
+    await productos.findOneAndRemove({referencia: req.body.referencia});
 
-    const update = {referencia: req.body.referencia, nombre: req.body.nombre, descripcion: req.body.descripcion,  precio: req.body.precio, stock: req.body.stock, habilitado: req.body.habilitado, imagen: req.body.imagen};
+    await productos.insertMany(nuevo);
     
-    await productos.findOneAndUpdate(filtro, update);
-
-
     res.redirect('/api/v1/productos');
     
 };
-
 
 
 // GENERAR TABLA EXCEL DE LOS DATOS SOBRE LOS PRODUCTOS ----------------------------------------
