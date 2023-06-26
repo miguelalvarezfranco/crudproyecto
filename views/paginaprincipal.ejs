@@ -99,17 +99,43 @@
 
         <nav class="navbar">
             <h1 class="navbar-logo">NUESTROS PRODUCTOS 👖👔</h1>
-            <h1 class="ver-carrito" id="verCarrito">🛒</h1>
-        </nav>
+        <div class="d-flex">
+            <button class="ver-carrito btn"  data-toggle="modal" data-target="#verCarrito">🛒</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            style="margin-right: 25px;">
+            iniciar sesion
+            </button>
+        </div>
 
+        </nav>
+    
     </div>
 
+  
+  <!-- Carrito-->
+  <div class="modal fade " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carrito">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="body-carrito">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        style="margin-right: 25px;">
-        iniciar sesion
-    </button>
+
+   
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -156,11 +182,8 @@
     </div>
     </div>
 
-    
-
     <br>
     <br>
-
 
     <div class="contenedor">
 
@@ -197,19 +220,19 @@
 
 
         <%producto.forEach(function(elemento){%>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 17rem;">
                 <img src="https://source.unsplash.com/featured/300x201" class="card-img-top" alt="..">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <%elemento.nombre%>
+                        <%=elemento.nombre%>
                     </h5>
                     <p class="card-text">
-                        <%elemento.descripcion%>
+                        <%=elemento.descripcion%>
                     </p>
                     <p class="card-text">
-                        <%elemento.precio%>
+                        <%=elemento.precio%>
                     </p>
-                    <button type="button" style="border-radius: 15px; padding: 12px; "  onclick="Carrito"()>Comprar</button>
+                    <button type="button" style="border-radius: 15px; padding: 12px; "  onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Comprar</button>
                 </div>
             </div>
         <% })%>
@@ -219,8 +242,40 @@
         <script> 
         let carritoCompras =[];
 
-            function Carrito(producto){
-                carritoCompras.push
+        let body = document.getElementById('body-carrito')
+
+
+            function Carrito(id, imagen, nombre,  precio){
+                carritoCompras.push({
+                    id: id,
+                    imagen: imagen,
+                    nombre: nombre,
+                    precio: precio
+                });
+                console.log(carritoCompras);
+
+                body.innerHTML='';
+
+                carritoCompras.forEach(producto =>{
+                    let carrito = document.createElement('div')
+                    carrito.classList.add('d-flex','justify-content-between','align-items-center' )
+                    carrito.innerHTML =
+                    `<img src="${producto.imagen}">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.precio}</p>`;
+
+                    body.append(carrito);
+                });
+
+                // const total = carrito.reduce((aco, el)=> aco + el.precio, 0);
+
+                // const totaltodo = document.createElement('div')
+                // totaltodo.className ="total-content"
+                // innerHTML = `total a pagar: ${total}`
+
+                // body.append(totaltodo);
+
+                
             }
             
                 
