@@ -88,8 +88,11 @@
 
     .contenedor {
         margin-left: 45px;
-
     }
+    .eliminar-producto{
+        cursor: pointer;
+    }
+
    
 </style>
 
@@ -100,7 +103,7 @@
         <nav class="navbar">
             <h1 class="navbar-logo">NUESTROS PRODUCTOS 👖👔</h1>
         <div class="d-flex">
-            <button class="ver-carrito btn"  data-toggle="modal" data-target="#verCarrito">🛒</button>
+            <button class="ver-carrito btn"  data-toggle="modal" data-target="#verCarrito" onclick="pintarCarrito()" >🛒</button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
             style="margin-right: 25px;">
             iniciar sesion
@@ -111,7 +114,6 @@
     
     </div>
 
-  
   <!-- Carrito-->
   <div class="modal fade " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -126,16 +128,11 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
-
-
-
-   
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -237,55 +234,85 @@
             </div>
         <% })%>
 
-
-
         <script> 
-        let carritoCompras =[];
+
+
+        
+        let carritoCompras = JSON.parse(localStorage.getItem("Micarrito")) || [];
 
         let body = document.getElementById('body-carrito')
 
-
+    
             function Carrito(id, imagen, nombre,  precio){
                 carritoCompras.push({
                     id: id,
                     imagen: imagen,
                     nombre: nombre,
-                    precio: precio
+                    precio: precio,
                 });
                 console.log(carritoCompras);
+                localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
 
+                pintarCarrito();
+                         
+                          
+               }          
+                
+
+             function pintarCarrito(){
                 body.innerHTML='';
 
-                carritoCompras.forEach(producto =>{
-                    let carrito = document.createElement('div')
-                    carrito.classList.add('d-flex','justify-content-between','align-items-center' )
-                    carrito.innerHTML =
-                    `<img src="${producto.imagen}">
-                    <h3>${producto.nombre}</h3>
-                    <p>${producto.precio}</p>`;
+                    carritoCompras.forEach(producto =>{
+                        let carrito = document.createElement('div')
+                        carrito.classList.add('d-flex','justify-content-between','align-items-center')
+                        carrito.innerHTML =
+                        `<img src="${producto.imagen}">
+                        <h3>${producto.nombre}</h3>
+                        <p>${producto.precio}</p>`;
 
-                    body.append(carrito);
-                });
+                        body.append(carrito);
 
-                // const total = carrito.reduce((aco, el)=> aco + el.precio, 0);
+                        let eliminar = document.createElement('span');
+                        eliminar.innerText ="🧻";
+                        eliminar.className ="eliminar-producto";
+                        carrito.append(eliminar);
 
-                // const totaltodo = document.createElement('div')
-                // totaltodo.className ="total-content"
-                // innerHTML = `total a pagar: ${total}`
+                       eliminar.addEventListener("click", eliminarProducto);
 
-                // body.append(totaltodo);
 
-                
+                    });
             }
-            
+
+
                 
 
+                const eliminarProducto=() =>{
+                 const foundId = carrito.find((elemento) => elemento.id);
+
+                console.log(foundId);
+
+                carritoCompras = carritoCompras.filter((carritoId) =>{
+                   return carritoId !== foundId;
+               });
+
+               pintarCarrito();
+             };
+
+               
+                
+                    
+                    
             
-            
+
+                
+
+                
+
+                
+
+             
 
         </script>
-    
-
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
