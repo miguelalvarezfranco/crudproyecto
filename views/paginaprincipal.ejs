@@ -258,10 +258,14 @@
                         precio: precio,
                     });
                     console.log(carritoCompras);
-                    localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
+                    cookies();
 
                     pintarCarrito();
 
+                }
+
+                function cookies(){
+                    localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
                 }
 
 
@@ -299,6 +303,8 @@
                     });
 
                     pintarCarrito();
+                    cookies();
+                    
                 };
 
 
