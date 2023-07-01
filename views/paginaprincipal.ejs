@@ -224,7 +224,7 @@
 
     <%producto.forEach(function(elemento){%>
         <div class="card" style="width: 17rem;">
-            <img src="https://source.unsplash.com/featured/300x201" class="card-img-top" alt="..">
+            <img src="https://source.unsplash.com/300x201/?<%=elemento.nombre%>" class="card-img-top" alt="..">
             <div class="card-body">
                 <h5 class="card-title">
                     <%=elemento.nombre%>
