@@ -119,7 +119,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="carrito">Modal title</h5>
+          <h5 class="modal-title" id="carrito">Mi Carrito de Compras</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -254,21 +254,20 @@
                 localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
 
                 pintarCarrito();
-                         
-                          
+
                }          
                 
 
              function pintarCarrito(){
                 body.innerHTML='';
 
-                    carritoCompras.forEach(producto =>{
+                    carritoCompras.forEach(elemento =>{
                         let carrito = document.createElement('div')
                         carrito.classList.add('d-flex','justify-content-between','align-items-center')
                         carrito.innerHTML =
-                        `<img src="${producto.imagen}">
-                        <h3>${producto.nombre}</h3>
-                        <p>${producto.precio}</p>`;
+                        `<img src="https://source.unsplash.com/featured/300x201" style="height:35px;">
+                        <h3>${elemento.nombre}</h3>
+                        <p>${elemento.precio}</p>`;
 
                         body.append(carrito);
 
@@ -283,11 +282,8 @@
                     });
             }
 
-
-                
-
                 const eliminarProducto=() =>{
-                 const foundId = carrito.find((elemento) => elemento.id);
+                 const foundId = carrito.find((producto) => producto.id);
 
                 console.log(foundId);
 
