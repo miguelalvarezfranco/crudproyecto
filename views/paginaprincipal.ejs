@@ -235,16 +235,13 @@
         <% })%>
 
         <script> 
-<<<<<<< HEAD
-            function Carrito(){
-            
-                }
-=======
+
+
 
 
         
         let carritoCompras = JSON.parse(localStorage.getItem("Micarrito")) || [];
->>>>>>> a5475f46e44ef71f4728883e77c53238932a004f
+
 
         let body = document.getElementById('body-carrito')
 
@@ -261,10 +258,10 @@
 
                 pintarCarrito();
 
-               }          
+            }          
                 
 
-             function pintarCarrito(){
+            function pintarCarrito(){
                 body.innerHTML='';
 
                     carritoCompras.forEach(elemento =>{
@@ -282,25 +279,25 @@
                         eliminar.className ="eliminar-producto";
                         carrito.append(eliminar);
 
-                       eliminar.addEventListener("click", eliminarProducto);
+                    eliminar.addEventListener("click", eliminarProducto);
 
 
                     });
             }
 
                 const eliminarProducto=() =>{
-                 const foundId = carrito.find((producto) => producto.id);
+                const foundId = carrito.find((producto) => producto.id);
 
                 console.log(foundId);
 
                 carritoCompras = carritoCompras.filter((carritoId) =>{
-                   return carritoId !== foundId;
-               });
+                return carritoId !== foundId;
+            });
 
-               pintarCarrito();
-             };
+            pintarCarrito();
+            };
 
-               
+            
                 
                     
                     
