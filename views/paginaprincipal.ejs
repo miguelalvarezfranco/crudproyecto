@@ -49,7 +49,7 @@
         margin-right: 20px;
         margin-top: 2.1vh;
         cursor: pointer;
-    
+
     }
 
     .formu input {
@@ -59,9 +59,12 @@
     }
 
     .modal-body {
-        background: #616161;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #9bc5c3, #616161); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #616161;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #9bc5c3, #616161);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #9bc5c3, #616161);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
 
@@ -72,9 +75,12 @@
         margin-left: 73px;
         border-radius: 15px;
         border-color: black;
-        background: #abbaab;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #abbaab;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ffffff, #abbaab);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ffffff, #abbaab);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .card :hover {
@@ -89,11 +95,10 @@
     .contenedor {
         margin-left: 45px;
     }
-    .eliminar-producto{
+
+    .eliminar-producto {
         cursor: pointer;
     }
-
-   
 </style>
 
 <body>
@@ -102,37 +107,38 @@
 
         <nav class="navbar">
             <h1 class="navbar-logo">NUESTROS PRODUCTOS 👖👔</h1>
-        <div class="d-flex">
-            <button class="ver-carrito btn"  data-toggle="modal" data-target="#verCarrito" onclick="pintarCarrito()" >🛒</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            style="margin-right: 25px;">
-            iniciar sesion
-            </button>
-        </div>
+            <div class="d-flex">
+                <button class="ver-carrito btn" data-toggle="modal" data-target="#verCarrito"
+                    onclick="pintarCarrito()">🛒</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    style="margin-right: 25px;">
+                    iniciar sesion
+                </button>
+            </div>
 
         </nav>
-    
+
     </div>
 
-  <!-- Carrito-->
-  <div class="modal fade " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="carrito">Mi Carrito de Compras</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="body-carrito">
+    <!-- Carrito-->
+    <div class="modal fade " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carrito">Mi Carrito de Compras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="body-carrito">
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -162,8 +168,8 @@
                             <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
                             <br>
                             <br>
-                            <input type="submit" class="btn btn-outline-success" value="Iniciar Sesión" 
-                            <br> <a href="#">Recuperar Contraseña</a> <br><br>
+                            <input type="submit" class="btn btn-outline-success" value="Iniciar Sesión" <br> <a
+                                href="#">Recuperar Contraseña</a> <br><br>
                             <br>
                             <br>
                             <div class="modal-footer">
@@ -174,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     </div>
@@ -216,57 +222,55 @@
     </div>
 
 
-        <%producto.forEach(function(elemento){%>
-            <div class="card" style="width: 17rem;">
-                <img src="https://source.unsplash.com/featured/300x201" class="card-img-top" alt="..">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <%=elemento.nombre%>
-                    </h5>
-                    <p class="card-text">
-                        <%=elemento.descripcion%>
-                    </p>
-                    <p class="card-text">
-                        <%=elemento.precio%>
-                    </p>
-                    <button type="button" style="border-radius: 15px; padding: 12px; "  onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Comprar</button>
-                </div>
+    <%producto.forEach(function(elemento){%>
+        <div class="card" style="width: 17rem;">
+            <img src="https://source.unsplash.com/featured/300x201" class="card-img-top" alt="..">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%=elemento.nombre%>
+                </h5>
+                <p class="card-text">
+                    <%=elemento.descripcion%>
+                </p>
+                <p class="card-text">
+                    <%=elemento.precio%>
+                </p>
+                <button type="button" style="border-radius: 15px; padding: 12px; "
+                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Comprar</button>
             </div>
+        </div>
         <% })%>
 
-        <script> 
+            <script>
 
 
+                let carritoCompras = JSON.parse(localStorage.getItem("Micarrito" )) || [];
 
 
-        
-        let carritoCompras = JSON.parse(localStorage.getItem("Micarrito")) || [];
+                let body = document.getElementById('body-carrito')
 
 
-        let body = document.getElementById('body-carrito')
+                function Carrito(id, imagen, nombre, precio) {
+                    carritoCompras.push({
+                        id: id,
+                        imagen: imagen,
+                        nombre: nombre,
+                        precio: precio,
+                    });
+                    console.log(carritoCompras);
+                    localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
 
-    
-            function Carrito(id, imagen, nombre,  precio){
-                carritoCompras.push({
-                    id: id,
-                    imagen: imagen,
-                    nombre: nombre,
-                    precio: precio,
-                });
-                console.log(carritoCompras);
-                localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
+                    pintarCarrito();
 
-                pintarCarrito();
+                }
 
-            }          
-                
 
-            function pintarCarrito(){
-                body.innerHTML='';
+                function pintarCarrito() {
+                    body.innerHTML = '';
 
-                    carritoCompras.forEach(elemento =>{
+                    carritoCompras.forEach(elemento => {
                         let carrito = document.createElement('div')
-                        carrito.classList.add('d-flex','justify-content-between','align-items-center')
+                        carrito.classList.add('d-flex', 'justify-content-between', 'align-items-center')
                         carrito.innerHTML =
                         `<img src="https://source.unsplash.com/featured/300x201" style="height:35px;">
                         <h3>${elemento.nombre}</h3>
@@ -275,55 +279,47 @@
                         body.append(carrito);
 
                         let eliminar = document.createElement('span');
-                        eliminar.innerText ="🧻";
-                        eliminar.className ="eliminar-producto";
+                        eliminar.innerText = "🧻";
+                        eliminar.className = "eliminar-producto";
                         carrito.append(eliminar);
 
-                    eliminar.addEventListener("click", eliminarProducto);
+                        eliminar.addEventListener("click", eliminarProducto);
 
 
                     });
-            }
+                }
 
-                const eliminarProducto=() =>{
-                const foundId = carrito.find((producto) => producto.id);
+                const eliminarProducto = () => {
+                    const foundId = carritoCompras.find((elemento) => elemento.id);
 
-                console.log(foundId);
+                    console.log(foundId);
 
-                carritoCompras = carritoCompras.filter((carritoId) =>{
-                return carritoId !== foundId;
-            });
+                    carritoCompras = carritoCompras.filter((carritoId) => {
+                        return carritoId !== foundId;
+                    });
 
-            pintarCarrito();
-            };
+                    pintarCarrito();
+                };
 
-            
+
+
+
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81P<<<<<<< HEAD
+                function Carrito(){
                 
-                    
-                    
-            
+                    }oYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+                integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+                crossorigin="anonymous"></script>
 
-                
 
-                
-
-                
-
-             
-
-        </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-            integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-            crossorigin="anonymous"></script>
-
-                
 </body>
 
 </html>
