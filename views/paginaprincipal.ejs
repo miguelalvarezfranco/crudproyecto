@@ -49,6 +49,7 @@
         margin-right: 20px;
         margin-top: 2.1vh;
         cursor: pointer;
+    
     }
 
     .formu input {
@@ -58,13 +59,9 @@
     }
 
     .modal-body {
-        background: #C9D6FF;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #E2E2E2, #C9D6FF);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+        background: #616161;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #9bc5c3, #616161); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
 
@@ -75,13 +72,9 @@
         margin-left: 73px;
         border-radius: 15px;
         border-color: black;
-        background: #304352;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #d7d2cc, #304352);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #d7d2cc, #304352);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+        background: #abbaab;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
     .card :hover {
@@ -95,8 +88,12 @@
 
     .contenedor {
         margin-left: 45px;
-
     }
+    .eliminar-producto{
+        cursor: pointer;
+    }
+
+   
 </style>
 
 <body>
@@ -104,19 +101,38 @@
     <div class="container-nav">
 
         <nav class="navbar">
-            <h1 class="navbar-logo">NUESTROS PRODUCTOS</h1>
-            <h1 class="ver-carrito" id="verCarrito">🛒</h1>
+            <h1 class="navbar-logo">NUESTROS PRODUCTOS 👖👔</h1>
+        <div class="d-flex">
+            <button class="ver-carrito btn"  data-toggle="modal" data-target="#verCarrito" onclick="pintarCarrito()" >🛒</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            style="margin-right: 25px;">
+            iniciar sesion
+            </button>
+        </div>
 
         </nav>
-
+    
     </div>
 
+  <!-- Carrito-->
+  <div class="modal fade " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carrito">Mi Carrito de Compras</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="body-carrito">
 
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        style="margin-right: 25px;">
-        iniciar sesion
-    </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -163,11 +179,8 @@
     </div>
     </div>
 
-    
-
     <br>
     <br>
-
 
     <div class="contenedor">
 
@@ -204,34 +217,104 @@
 
 
         <%producto.forEach(function(elemento){%>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 17rem;">
                 <img src="https://source.unsplash.com/featured/300x201" class="card-img-top" alt="..">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <%elemento.nombre%>
+                        <%=elemento.nombre%>
                     </h5>
                     <p class="card-text">
-                        <%elemento.descripcion%>
+                        <%=elemento.descripcion%>
                     </p>
                     <p class="card-text">
-                        <%elemento.precio%>
+                        <%=elemento.precio%>
                     </p>
-                    <button type="button"  onclick="comprar"()>Comprar</button>
+                    <button type="button" style="border-radius: 15px; padding: 12px; "  onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Comprar</button>
                 </div>
             </div>
         <% })%>
 
         <script> 
+<<<<<<< HEAD
             function Carrito(){
             
                 }
+=======
 
+
+        
+        let carritoCompras = JSON.parse(localStorage.getItem("Micarrito")) || [];
+>>>>>>> a5475f46e44ef71f4728883e77c53238932a004f
+
+        let body = document.getElementById('body-carrito')
+
+    
+            function Carrito(id, imagen, nombre,  precio){
+                carritoCompras.push({
+                    id: id,
+                    imagen: imagen,
+                    nombre: nombre,
+                    precio: precio,
+                });
+                console.log(carritoCompras);
+                localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
+
+                pintarCarrito();
+
+               }          
+                
+
+             function pintarCarrito(){
+                body.innerHTML='';
+
+                    carritoCompras.forEach(elemento =>{
+                        let carrito = document.createElement('div')
+                        carrito.classList.add('d-flex','justify-content-between','align-items-center')
+                        carrito.innerHTML =
+                        `<img src="https://source.unsplash.com/featured/300x201" style="height:35px;">
+                        <h3>${elemento.nombre}</h3>
+                        <p>${elemento.precio}</p>`;
+
+                        body.append(carrito);
+
+                        let eliminar = document.createElement('span');
+                        eliminar.innerText ="🧻";
+                        eliminar.className ="eliminar-producto";
+                        carrito.append(eliminar);
+
+                       eliminar.addEventListener("click", eliminarProducto);
+
+
+                    });
+            }
+
+                const eliminarProducto=() =>{
+                 const foundId = carrito.find((producto) => producto.id);
+
+                console.log(foundId);
+
+                carritoCompras = carritoCompras.filter((carritoId) =>{
+                   return carritoId !== foundId;
+               });
+
+               pintarCarrito();
+             };
+
+               
+                
+                    
+                    
             
-            
+
+                
+
+                
+
+                
+
+             
 
         </script>
-    
-
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
