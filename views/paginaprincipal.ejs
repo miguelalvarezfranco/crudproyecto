@@ -131,6 +131,7 @@
                     </button>
                 </div>
                 <div class="modal-body" id="body-carrito">
+                    <input type="number" name="cantidad">
 
                 </div>
                 <div class="modal-footer">
@@ -235,11 +236,8 @@
                 <p class="card-text">
                     <%=elemento.precio%>
                 </p>
-                <p class="card-text">
-                    <%=elemento.cantidad%>
-                </p>
                 <button type="button" style="border-radius: 15px; padding: 12px; "
-                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`,`<%=elemento.cantidad%>`)">Comprar</button>
+                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Comprar</button>
             </div>
         </div>
         <% })%>
@@ -259,7 +257,6 @@
                         imagen: imagen,
                         nombre: nombre,
                         precio: precio,
-                        cantidad: cantida,
                     });
                     console.log(carritoCompras);
                     cookies();
@@ -282,8 +279,7 @@
                         carrito.innerHTML =
                         `<img src="https://source.unsplash.com/featured/300x201" style="height:35px;">
                         <h3>${elemento.nombre}</h3>
-                        <p>${elemento.precio}</p>
-                        <p> cantidad: ${elemento.cantidad}`;
+                        <p>${elemento.precio}</p>`;
 
                         body.append(carrito);
 
