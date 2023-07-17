@@ -23,14 +23,14 @@ app.get('/inicio', (req, res) => {
     res.render('inicio')
 })
 
-/*app.get('/catalogo', (req, res) => {
-    res.render('catalogo')
-})*/
+app.get('/landing', (req, res) => {
+    res.render('landing')
+})
 
 app.get('grafica', (req, res)=>{
     res.render('grafica')
 })
- 
+
 /*app.post('/descargarexcel')*/
 
 const Mirouter =require('./routes/enrutamiento');

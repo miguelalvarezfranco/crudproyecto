@@ -46,6 +46,7 @@ router.get('/mostrarventas',rutven.mostrarventas);
 router.get('/paginaprincipal',rutclien.mostrarpagina);
 
 
+
 //NODEMAILER
 
 router.get('/enviarcorreo',reutemail.enviaremail);

@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
+
 
 <style>
     body {
@@ -99,6 +99,11 @@
     .eliminar-producto {
         cursor: pointer;
     }
+    .button{
+        display: flex;
+        align-items: center;
+    }
+
 </style>
 
 <body>
@@ -112,6 +117,8 @@
                     onclick="pintarCarrito()">🛒</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                     style="margin-right: 25px;">
+            
+
                     iniciar sesion
                 </button>
             </div>
@@ -121,9 +128,9 @@
     </div>
 
     <!-- Carrito-->
-    <div class="modal fade " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+    <div class="modal fade  " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="carrito">Mi Carrito de Compras</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -131,7 +138,6 @@
                     </button>
                 </div>
                 <div class="modal-body" id="body-carrito">
-                    <input type="number" name="cantidad">
 
                 </div>
                 <div class="modal-footer">
@@ -236,12 +242,12 @@
                 <p class="card-text">
                     <%=elemento.precio%>
                 </p>
-                <p class="card-text">
-                    <%=elemento.cantidad%>
-                </p>
+
+                
+    
         
                 <button type="button" style="border-radius: 15px; padding: 12px; "
-                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`,`<%=elemento.cantidad%>`)">Comprar</button>
+                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Añadir Al Carrito</button>
             </div>
         </div>
         <% })%>
@@ -255,19 +261,30 @@
                 let body = document.getElementById('body-carrito')
 
 
-                function Carrito(id, imagen, nombre, precio, cantidad) {
+                function Carrito(id, imagen, nombre, precio) {
+
+                const repeat = carritoCompras.some((repeatid) => repeatid.id === id);
+        
+
+                if (repeat){
+                    carritoCompras.map((produ) => {
+                        if (produ.id === id){
+                            produ.cantidad++; 
+                        }
+                    });
+                }else{
                     carritoCompras.push({
                         id: id,
                         imagen: imagen,
                         nombre: nombre,
                         precio: precio,
-                        cantidad: cantidad,
+                        cantidad: 1,
                     });
+                }
                     console.log(carritoCompras);
                     cookies();
-
                     pintarCarrito();
-
+                
                 }
 
                 function cookies(){
@@ -285,7 +302,13 @@
                         `<img src="https://source.unsplash.com/featured/300x201" style="height:35px;">
                         <h3>${elemento.nombre}</h3>
                         <p>${elemento.precio}</p>
-                        <p>cantidad: ${elemento.cantidad}</p>`;
+                        <button type="button"  class="button"   onclick="sumar('${elemento.id}')">+</button>
+                        <p>cantidad:   ${elemento.cantidad}</p>
+                        <button type="button" class="button" onclick="restar('${elemento.id} ')">-</button>
+
+                        <button type="button" class="btn btn-dark"  onclick="comprar('${elemento.id}')">Comprar💲</button>
+
+                        <p>total: ${elemento.cantidad * elemento.precio}</p>`;
                         
                         
                         
@@ -293,7 +316,7 @@
                         body.append(carrito);
 
                         let eliminar = document.createElement('span');
-                        eliminar.innerText = "🧻";
+                        eliminar.innerText = "⛔";
                         eliminar.className = "eliminar-producto";
                         carrito.append(eliminar);
 
@@ -301,7 +324,7 @@
 
 
                     });
-                    const total = carritoCompras.reduce((acc, pro) => acc + parseFloat(pro.precio), 0);
+                    const total = carritoCompras.reduce((acc, pro) => acc + parseFloat(pro.precio) * (pro.cantidad), 0);
 
                     const totalproductos = document.createElement("div");
                     totalproductos.className = "total-content";
@@ -312,7 +335,7 @@
                 }
 
                 const eliminarProducto = () => {
-                    const foundId =     carritoCompras.find((elemento) => elemento.id);
+                    const foundId =  carritoCompras.find((elemento) => elemento.id);
 
                     console.log(foundId);
 
@@ -325,10 +348,50 @@
                     
                 };
 
+                function sumar (id) {
+                    carritoCompras.map((produ) => {
+                        if (produ.id === id){
+                            produ.cantidad++; 
+                            cookies();
+                            pintarCarrito()
+                        }
+                    });
+
+                
+                }
+
+                function restar (id) {
+                    carritoCompras.map((produ) => {
+                        if (produ.id == id){
+                            produ.cantidad --; 
+                            cookies();
+                            pintarCarrito()
+
+                        if (produ.id === 0){
+                            pintarCarrito()
+                            cookies(); 
+                            eliminarProducto();
+                        }
+                        }
+                        
+                    });
+
+                }
+
+                function comprar(id) {
+                        alert("su producto fue comprado satisfactoriamente");
+
+                }
+
+
 
 
 
             </script>
+
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+                            
 
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -338,7 +401,7 @@
                 crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
                 integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-                crossorigin="anonymous"></script>
+                crossorigin="anonymous"></script> 
 
 
 </body>
