@@ -30,6 +30,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
+            <th scope="col">ID</th>
             <th scope="col">PRODCUTOS VENTA</th>
             <th scope="col">SUBTOTAL VENTA</th>
             <th scope="col">FECHA DE LA VENTA</th>
@@ -45,6 +46,9 @@
         <tbody>
             <%venta.forEach(function(elemento){%>
                 <tr>
+                    <td>
+                        <%=elemento._id%>
+                    </td>
                     <td>
                         <%=elemento.productosventa%>
                     </td>
@@ -67,8 +71,8 @@
                         <%=elemento.vendedorquedespachalaventa%>
                     </td>
                     <td>
-                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento.productosventa %>`, `<%=elemento.subtotalventa %>`,`<%=elemento.fechadelaventa%>`,`<%=elemento.impuesto%>`,`<%=elemento.totalventa%>`,`<%=elemento.clientequerealizalacompra%>`,`<%=elemento.vendedorquedespachalaventa%>` )" data-target="#update">Actualizar</button>
-                        <a href="eliminar/<%=elemento.nombre%>" class="button btn-success">eliminar</a>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento._id %>`,`<%=elemento.productosventa %>`, `<%=elemento.subtotalventa %>`,`<%=elemento.fechadelaventa%>`,`<%=elemento.impuesto%>`,`<%=elemento.totalventa%>`,`<%=elemento.clientequerealizalacompra%>`,`<%=elemento.vendedorquedespachalaventa%>` )" data-target="#update">Actualizar</button>
+                        <a href="eliminarventa/<%=elemento.nombre%>" class="button btn-success">eliminar</a>
                     </td>
                     
                 </tr>
@@ -81,7 +85,7 @@
 
 
 <!-- The Modal -->
-<div class="modal fade" ="update">
+<div class="modal fade" id="update">
     <div class="modal-dialog">
     <div class="modal-content">
         <!-- Modal Header -->
@@ -93,7 +97,11 @@
         <!-- Modal body -->
         <div class="modal-body">
 
-            <form action="actualizar" method="post">
+            <form action="actualizarventas" method="post">
+                <div class="form-group">
+                    <label for="text">ID</label>
+                    <input type="text" class="form-control" id="actualizaridf" name="idactualizar" placeholder="id" readonly>
+                </div>
                 <div class="form-group">
                     <label for="text">productosventa</label>
                     <input type="text" class="form-control" id="actualizarproductosventa" name="productosventaactualizar"  placeholder="productosventa"  >
@@ -143,7 +151,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>
-        function llenar(productosventa, subtotalventa, fechadelaventa, impuesto, totalventa, clientequerealizalacompra, vendedorquedespachalaventa){
+        function llenar(idc, productosventa, subtotalventa, fechadelaventa, impuesto, totalventa, clientequerealizalacompra, vendedorquedespachalaventa){
+            actualizaridc.value = id;
             actualizarproductosventa.value=productosventa;
             actualizarsubtotalventa.value=subtotalventa;
             actualizarfechadelaventa.value=fechadelaventa;

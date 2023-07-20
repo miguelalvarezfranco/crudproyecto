@@ -35,10 +35,13 @@
     }
 
     .navbar-logo {
-        justify-self: start;
+        justify-content: center;
         margin-left: 20px;
         color: #fff;
         cursor: pointer;
+        color: #FFFFFF;
+        background: #333333;
+        text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
 
 
 
@@ -86,6 +89,7 @@
     .card :hover {
         transform: scale(1.1);
         box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 0);
+        
     }
 
     .card-body a {
@@ -93,16 +97,13 @@
     }
 
     .contenedor {
-        margin-left: 45px;
+        margin-left: 60px;
     }
 
     .eliminar-producto {
         cursor: pointer;
     }
-    .button{
-        display: flex;
-        align-items: center;
-    }
+   
 
 </style>
 
@@ -202,16 +203,16 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
 
-                    <img src="https://source.unsplash.com/featured/300x201" class="d-block w-90" alt="" width="1800px"
+                    <img src="https://source.unsplash.com/featured/300x201" class="d-block w-95" alt="" width="1900px"
                         height="550px">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://source.unsplash.com/featured/300x201" class="d-block w-90" alt="imagen2"
-                        width="1800px" height="550px">
+                    <img src="https://source.unsplash.com/featured/300x201" class="d-block w-95" alt="imagen2"
+                        width="1900px" height="550px">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://source.unsplash.com/featured/300x201" class="d-block w-90" alt="..."
-                        width="1800px" height="550px">
+                    <img src="https://source.unsplash.com/featured/300x201" class="d-block w-95" alt="..."
+                        width="1900px" height="550px">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls"
@@ -297,19 +298,18 @@
 
                     carritoCompras.forEach(elemento => {
                         let carrito = document.createElement('div')
-                        carrito.classList.add('d-flex', 'justify-content-between', 'align-items-center')
-                        carrito.innerHTML =
-                        `<img src="https://source.unsplash.com/featured/300x201" style="height:35px;">
+                        carrito.className = " flex-direction-row sm-2 justify-content-space-between align-items-center d-flex-center"
+                        carrito.innerHTML = 
+                        `<div><img src="https://source.unsplash.com/featured/300x201" style="height:35px; ">
                         <h3>${elemento.nombre}</h3>
-                        <p>${elemento.precio}</p>
-                        <button type="button"  class="button"   onclick="sumar('${elemento.id}')">+</button>
-                        <p>cantidad:   ${elemento.cantidad}</p>
-                        <button type="button" class="button" onclick="restar('${elemento.id} ')">-</button>
+                        <p>${elemento.precio}</p> </div>
 
+                        <div><button type="button"  class="button" style="d-flex "  onclick="sumar('${elemento.id}')">+</button>
+                        <p>cantidad:   ${elemento.cantidad} </p>
+                        <button type="button"  style="d-flex "  class="button" onclick="restar('${elemento.id}')">-</button>
                         <button type="button" class="btn btn-dark"  onclick="comprar('${elemento.id}')">Comprar💲</button>
+                        <p>total: ${elemento.cantidad * elemento.precio}</p></div>`;
 
-                        <p>total: ${elemento.cantidad * elemento.precio}</p>`;
-                        
                         
                         
 
@@ -367,7 +367,7 @@
                             cookies();
                             pintarCarrito()
 
-                        if (produ.id === 0){
+                        if (produ.id == 0){
                             pintarCarrito()
                             cookies(); 
                             eliminarProducto();

@@ -5,8 +5,8 @@ const SchemaProducto = new mongoose.Schema({
         type: Object,
         required:true
     },
-      
-   
+    
+
     referencia:{
         type:String,
         required:true,

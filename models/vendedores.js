@@ -1,6 +1,12 @@
 const mongoose = require('../config/conexion');
 
 const Schemavendedores= new mongoose.Schema({
+    _id:{
+        type: Object,
+        required:true,
+
+    
+    },
     nombre:{
         type:String,
         required:true,

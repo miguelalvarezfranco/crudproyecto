@@ -32,6 +32,8 @@ router.post('/actualizarproducto',rutproduct.actualizarproducto);
 router.get('/vendedores',rutvende.vendedor);
 router.post('/agregarvendedor',rutvende.agregarvendedor);
 router.get('/mostrarvendedores',rutvende.mostrarvendedores);
+router.get('/eliminarvendedor/:id', rutvende.eliminarvendedor);
+router.post('/actualizarvendedor',rutvende.actualizarvendedor);
 
 
 
@@ -39,6 +41,8 @@ router.get('/mostrarvendedores',rutvende.mostrarvendedores);
 router.get('/ventas',rutven.venta);
 router.post('/agregarventa',rutven.agregarventa);
 router.get('/mostrarventas',rutven.mostrarventas);
+router.get('/eliminarventa/:id', rutven.eliminarventa);
+router.post('/actualizarventas',rutven.actualizarventas);
 
 
 

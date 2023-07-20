@@ -1,6 +1,11 @@
 const mongoose = require('../config/conexion');
 
 const SchemaVentas = new mongoose.Schema({
+    _id:{
+        type: Object,
+        required:true,
+
+    },
     productosventa:{
         type:String,
         required:false,
