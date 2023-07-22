@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+    <title>Document</title>
+</head>
+<body>
+    <table  id="myTable"  class="display">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">TELEFONO</th>
+                <th scope="col">UBICACION</th>
+                <th scope="col">TOTALCOMPRADO</th>
+                <th scope="col">HISTORICODECOMPRAS</th>
+                <th scope="col">ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%cliente.forEach(function(elemento){%>
+                <tr>
+                    <td>
+                        <%=elemento._id%>
+                    </td>
+                    <td>
+                        <%=elemento.nombre%>
+                    </td>
+                    <td>
+                        <%=elemento.telefono%>
+                    </td>
+                    <td>
+                        <%=elemento.ubicacion%>
+                    </td>
+                        <%=elemento.totalcomprado%>
+                    </td>
+                    <td>
+                        <%=elemento.historicodecompras%>
+                    </td>
+                    <td>
+                        <%=elemento.acciones%>
+                    </td>
+                        <td>
+                            <button type="button" class="button button1" data-toggle="modal"
+                                onclick="actuformulario(`<%=elemento._id %>`, `<%=elemento.nombre %>`, `<%=elemento.telefono %>`,`<%=elemento.ubicacion%>`, `<%=elemento.centro%>`,`<%=elemento.totalcomprado%>`,`<%=elemento.historicodecompras%>` )"
+                                data-target="#update">Actualizar</button>
+                            <a href="eliminar/<%=elemento._id%>" class="button btn-success">eliminar</a>
+                        </td>
+                </tr>
+
+                <%})%>
+        </tbody>
+  
+        <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+</body>
+</html>

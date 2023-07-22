@@ -27,6 +27,10 @@ app.get('/landing', (req, res) => {
     res.render('landing')
 })
 
+app.get('/datatable', (req, res) => {
+    res.render('datatable')
+})
+
 app.get('grafica', (req, res)=>{
     res.render('grafica')
 })
