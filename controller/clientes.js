@@ -4,6 +4,7 @@ const productos = require('../models/productos');
 
 
 
+
 //CLIENTES
 exports.cliente = async(req, res)=>{
     let listacliente = await  cliente.find();
@@ -40,6 +41,8 @@ exports.agregarcliente= (req, res) => {
     });
 
     clientes.save()
+
+    const usuarios = new usuario
     res.redirect('/api/v1/clientes');
     console.log('clientes');
 

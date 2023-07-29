@@ -31,7 +31,7 @@ const SchemaCliente = new mongoose.Schema({
     },
     totalComprado:{
         type:Number,
-        required:true,
+
         
     },
     historicoDeCompras:{

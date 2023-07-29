@@ -1,10 +1,15 @@
 const mongoose = require('../config/conexion');
 
 const SchemaUsuario = new mongoose.Schema({
+    
     nombre:{
         type:String,
         required:true,
     
+    },
+    documento:{
+        type:Number,
+        required:true,
     },
     telefono:{
         type:Number,
@@ -24,6 +29,6 @@ const SchemaUsuario = new mongoose.Schema({
 
 })
 
-const usuario= mongoose.model('usuario', SchemaUsuario)
+const usuario= mongoose.model('usuarios', SchemaUsuario)
 
 module.exports = usuario;

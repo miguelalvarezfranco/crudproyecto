@@ -3,7 +3,7 @@ const rutclien = require ('../controller/clientes')
 const rutproduct = require ('../controller/productos')
 const rutvende = require('../controller/vendedores')
 const rutven = require('../controller/ventas')
-const rutusu= require('../controller/usuario') //se traen los documentos de la carpeta controlle//
+const rutusu= require('../controller/usuarios') //se traen los documentos de la carpeta controlle//
  //se traen los documentos de la carpeta controlle//
 const reutemail = require('../controller/nodemailer')
 //const rutExcel = require('../controller/productos.')//
@@ -48,9 +48,11 @@ router.post('/actualizarventas',rutven.actualizarventas);
 
 
 //USUARIOS
-router.get('/usuario',rutusu.usuario);
+router.get('/usuarios',rutusu.usuario);
 router.post('/agregarusuario',rutusu.agregarusuario);
-router.get('/mostrarusuario',rutusu.mostrarusuario);
+router.get('/mostrarusuarios',rutusu.mostrarusuarios);
+router.get('/eliminarusuario/:id', rutusu.eliminarusuarios);
+router.post('/actualizarusuario',rutusu.actualizarusuarios);
 
 
 

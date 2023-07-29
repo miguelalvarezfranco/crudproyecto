@@ -26,10 +26,11 @@
         <div class="row justify-content-center">
         <div class="col-8">
 
-    <h1 class="titulo">Tabla USUARIOS</h1>
+    <h1 class="titulo">Tabla Usuarios</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
+            <th scope="col">ID</th>
             <th scope="col">NOMBRE</th>
             <th scope="col">DOCUMENTO</th>
             <th scope="col">TELEFONO</th>
@@ -42,6 +43,9 @@
         <tbody>
             <%usuario.forEach(function(elemento){%>
                 <tr>
+                    <td>
+                        <%=elemento._id%>
+                    </td>
                     <td>
                         <%=elemento.nombre%>
                     </td>
@@ -58,8 +62,8 @@
                         <%=elemento.rol%>
                     </td>
                     <td>
-                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento.nombre%>`, `<%=elemento.documento %>`,`<%=elemento.telefono%>`,`<%=elemento.email%>`,`<%=elemento.rol%>`)" data-target="#update">Actualizar</button>
-                        <a href="eliminarvendedor/<%=elemento._id%>" class="button btn-success">eliminar</a>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento._id%>`,`<%=elemento.nombre%>`, `<%=elemento.documento %>`,`<%=elemento.telefono%>`,`<%=elemento.email%>`,`<%=elemento.rol%>`)" data-target="#update">Actualizar</button>
+                        <a href="eliminarusuario/<%=elemento._id%>" class="button btn-success">eliminar</a>
                     </td>
                     
                 </tr>
@@ -84,10 +88,10 @@
         <!-- Modal body -->
         <div class="modal-body">
 
-            <form action="actualizarvendedor" method="post">
+            <form action="actualizarusuarios" method="post">
                 <div class="form-group">
                     <label for="text">ID</label>
-                    <input type="text" class="form-control" id="actualizaridc" name="idactualizar" placeholder="id" readonly>
+                    <input type="text" class="form-control" id="actualizaridf" name="idactualizar" placeholder="id" readonly>
                 </div>
                 <div class="form-group">
                     <label for="text">nombre</label>
@@ -95,7 +99,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text">documento</label>
-                    <input type="text" class="form-control" id="actualizardocumento" name="documento" placeholder="documento">
+                    <input type="number" class="form-control" id="actualizardocumento" name="documento" placeholder="documento">
                 </div>
                 <div class="form-group">
                     <label for="text">telefono</label>
@@ -107,7 +111,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text">rol</label>
-                    <input type="" class="form-control" id="actualizarrol" name="rol" placeholder="rol">
+                    <input type="text" class="form-control" id="actualizarrol" name="rol" placeholder="rol">
                 </div>
             
                 <div class="modal-footer">
@@ -127,8 +131,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>
-        function llenar(idc, nombre, documento, telefono, email, rol){
-            actualizaridc.value = id;
+        function llenar(idf, nombre, documento, telefono, email, rol){
+            actualizaridf.value = id;
             actualizarnombre.value=nombre;
             actualizardocumento.value=documento;
             actualizartelefono.value=telefono;
