@@ -23,5 +23,4 @@ exports.enviaremail = () => {
             console.log('Email sent: ' + info.response);
         }
     }); 
-
 }
