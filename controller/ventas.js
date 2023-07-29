@@ -26,8 +26,8 @@ exports.agregarventa = (req, res) => {
         fechadelaventa: req.body.fechadelaventa,
         impuesto: req.body.impuesto,
         totalventa: req.body.totalventa,
-        clientequerealizacompra: req.body.clientequerealizacompra,
-        vendedorquedespachaventa: req.body.vendedorquedespachaventa,
+        clientequerealizacompra: req.body.clientenquerealizalacompra,
+        vendedorquedespachaventa: req.body.vendedorquedespachalaventa,
         
     });
 

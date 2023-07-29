@@ -20,7 +20,6 @@ exports.mostrarvendedores =(req, res)=>{ //render asocia un documento que contie
 
 exports.agregarvendedor = (req, res) => {
     const vendedor =  new vendedores({
-        _id : req.body.id,
         nombre: req.body.nombre,
         documento: req.body.documento,
         ventasdespachadas: req.body.ventasdespachadas,

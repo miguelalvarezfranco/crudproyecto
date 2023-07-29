@@ -118,8 +118,6 @@
                     onclick="pintarCarrito()">🛒</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                     style="margin-right: 25px;">
-            
-
                     iniciar sesion
                 </button>
             </div>
@@ -253,6 +251,10 @@
         </div>
         <% })%>
 
+
+    
+
+
             <script>
 
 
@@ -292,14 +294,17 @@
                     localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
                 }
 
+                
+
 
                 function pintarCarrito() {
                     body.innerHTML = '';
 
                     carritoCompras.forEach(elemento => {
                         let carrito = document.createElement('div')
-                        carrito.className = " sm-2 justify-content-between align-items-center d-flex-center"
+                        carrito.className = "d-flex justify-content-evenly align-items-center "
                         carrito.innerHTML = 
+
                         `<div><img src="https://source.unsplash.com/featured/300x201" style="height:35px; ">
                         <h3>${elemento.nombre}</h3>
                         <p>${elemento.precio}</p> </div>
@@ -309,6 +314,25 @@
                         <button type="button"  style="d-flex "  class="button" onclick="restar('${elemento.id}')">-</button>
                         
                         <p>total: ${elemento.cantidad * elemento.precio}</p></div>`;
+                        ` <div class="mb-3 w-25">
+                            <img src="https://source.unsplash.com/featured/300x201" style="width:200px;">
+                        </div>
+                        <div class="w-25">
+                            <div class="d-flex justify-content-center">
+                                <h3>${elemento.nombre}</h3>
+                            </div>
+                            <div>
+                                <div class=" d-flex justify-content-between ">
+                                    <button type="button"  class="btn btn-primary"   onclick="sumar('${elemento.id}')" >+</button>
+                                    <p>cantidad:   ${elemento.cantidad} </p>
+                                    <button type="button"   class="btn btn-primary" onclick="restar('${elemento.id}')">-</button>
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    
+                                </div>
+                            </div>
+                        </div>`;
+
 
                         
                         

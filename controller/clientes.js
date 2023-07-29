@@ -34,8 +34,8 @@ exports.agregarcliente= (req, res) => {
         telefono: req.body.telefono,
         ubicacion: req.body.ubicacion,
         centro: req.body.centro,
-        totalcomprado: req.body.totalcomprado,
-        historicodecompras: req.body.histoticoDeCompras, 
+        totalComprado: req.body.totalcomprado,
+        historicoDeCompras: req.body.historicodecompras, 
 
     });
 
