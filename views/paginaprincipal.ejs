@@ -103,7 +103,7 @@
     .eliminar-producto {
         cursor: pointer;
     }
-   
+
 
 </style>
 
@@ -174,7 +174,7 @@
                             <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
                             <br>
                             <br>
-                            <input type="submit" class="btn btn-outline-success" value="Iniciar Sesión" <br> <a
+                            <input type="submit" class="btn btn-outline-success" value="Iniciar Sesión"<br><a
                                 href="#">Recuperar Contraseña</a> <br><br>
                             <br>
                             <br>
@@ -194,7 +194,7 @@
     <br>
     <br>
 
-    <div class="contenedor">
+    <!-- <div class="contenedor">
 
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -225,7 +225,7 @@
             </button>
         </div>
 
-    </div>
+    </div> -->
 
 
     <%producto.forEach(function(elemento){%>
@@ -242,8 +242,6 @@
                     <%=elemento.precio%>
                 </p>
 
-                
-    
         
                 <button type="button" style="border-radius: 15px; padding: 12px; "
                     onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Añadir Al Carrito</button>
@@ -305,15 +303,6 @@
                         carrito.className = "d-flex justify-content-evenly align-items-center "
                         carrito.innerHTML = 
 
-                        `<div><img src="https://source.unsplash.com/featured/300x201" style="height:35px; ">
-                        <h3>${elemento.nombre}</h3>
-                        <p>${elemento.precio}</p> </div>
-
-                        <div><button type="button"  class="button" style="d-flex "  onclick="sumar('${elemento.id}')">+</button>
-                        <p>cantidad:   ${elemento.cantidad} </p>
-                        <button type="button"  style="d-flex "  class="button" onclick="restar('${elemento.id}')">-</button>
-                        
-                        <p>total: ${elemento.cantidad * elemento.precio}</p></div>`;
                         ` <div class="mb-3 w-25">
                             <img src="https://source.unsplash.com/featured/300x201" style="width:200px;">
                         </div>

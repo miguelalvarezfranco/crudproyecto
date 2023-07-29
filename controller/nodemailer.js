@@ -1,7 +1,5 @@
 const nodemailer = require('nodemailer');
 
-////
-
 exports.enviaremail = () => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',  //Se define que servicio de correo se va a utilizar para enviar el mensaje
@@ -14,7 +12,7 @@ exports.enviaremail = () => {
     let mailOptions = {
         from: 'maalavrez7441@misena.edu.co', //Correo que va a enviar el mensaje
         to: 'maalvarez7441@misena.edu.co', //correo que lo va a recibir
-        subject: 'mensaje de nodemailer Node.js', //asunto del correo
+        subject: 'recuperar Contraseña', //asunto del correo
         text: 'ensayo nodemailer' //texto del correo
     };
 
@@ -24,6 +22,6 @@ exports.enviaremail = () => {
         } else {
             console.log('Email sent: ' + info.response);
         }
-    });
+    }); 
 
 }
