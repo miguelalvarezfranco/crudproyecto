@@ -2,7 +2,9 @@ const express = require('express');
 const rutclien = require ('../controller/clientes')
 const rutproduct = require ('../controller/productos')
 const rutvende = require('../controller/vendedores')
-const rutven = require('../controller/ventas') //se traen los documentos de la carpeta controlle//
+const rutven = require('../controller/ventas')
+const rutusu= require('../controller/usuario') //se traen los documentos de la carpeta controlle//
+ //se traen los documentos de la carpeta controlle//
 const reutemail = require('../controller/nodemailer')
 //const rutExcel = require('../controller/productos.')//
 const router = express.Router();
@@ -43,6 +45,13 @@ router.post('/agregarventa',rutven.agregarventa);
 router.get('/mostrarventas',rutven.mostrarventas);
 router.get('/eliminarventa/:id', rutven.eliminarventa);
 router.post('/actualizarventas',rutven.actualizarventas);
+
+
+//USUARIOS
+router.get('/usuario',rutusu.usuario);
+router.post('/agregarusuario',rutusu.agregarusuario);
+router.get('/mostrarusuario',rutusu.mostrarusuario);
+
 
 
 

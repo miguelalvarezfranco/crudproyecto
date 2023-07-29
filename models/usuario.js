@@ -12,7 +12,7 @@ const SchemaUsuario = new mongoose.Schema({
     
     },
     email:{
-        type:email,
+        type:String,
         required:true,
     },
 
@@ -24,6 +24,6 @@ const SchemaUsuario = new mongoose.Schema({
 
 })
 
-const cliente = mongoose.model('cliente', SchemaCliente)
+const usuario= mongoose.model('usuario', SchemaUsuario)
 
-module.exports = cliente;
+module.exports = usuario;

@@ -6,7 +6,7 @@ const router = require('../routes/enrutamiento');
 
 //USUARIO
 exports.usuario = async(req, res)=>{
-    let listausuario = await  cliente.find();
+    let listausuario = await  usuario.find();
     console.log(listausuario);
 
     res.render( "listarusuario",{
@@ -21,20 +21,19 @@ exports.mostrarusuario =(req, res)=>{ //render asocia un documento que contiene 
 }
 
 exports.agregarusuario= (req, res) => {
-    const clientes =  new cliente({
+    const usuarios =  new usuario({
         _id : req.body.id,
         nombre: req.body.nombre,
+        documento: req.body.documento,
         telefono: req.body.telefono,
-        ubicacion: req.body.ubicacion,
-        centro: req.body.centro,
-        totalComprado: req.body.totalcomprado,
-        historicoDeCompras: req.body.historicodecompras, 
+        email: req.body.email,
+        rol: req.body.rol,
 
     });
 
-    clientes.save()
-    res.redirect('/api/v1/clientes');
-    console.log('clientes');
+    usuarios.save()
+    res.redirect('/api/v1/usuarios');
+    console.log('usuarios');
 
 };
 
