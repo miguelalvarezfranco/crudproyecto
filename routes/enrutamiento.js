@@ -69,7 +69,7 @@ router.get('/enviarcorreo',reutemail.enviaremail);
 
 //DESCARGA EXCEL
 
-router.get('/descargar', )
+router.get('/descargar',)
 
 
 module.exports = router;

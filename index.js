@@ -26,8 +26,9 @@ app.get('/datatable', (req, res) => {
     res.render('datatable')
 })
 
-app.get('grafica', (req, res)=>{
-    res.render('grafica')
+
+app.get('/recuperarC', (req, res)=>{
+    res.render('recuperarC')
 })
 
 /*app.post('/descargarexcel')*/
