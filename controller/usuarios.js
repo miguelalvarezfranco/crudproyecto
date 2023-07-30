@@ -28,7 +28,7 @@ exports.agregarusuario= (req, res) => {
         _id : req.body.id,
         nombre: req.body.nombre,
         documento: req.body.documento,
-        telefono: req.body.telefono,
+        habilitado: req.body.habilitado,
         email: req.body.email,
         rol: req.body.rol,
 
@@ -53,7 +53,7 @@ exports.actualizarusuarios = async(req,res) => {
 
     const filtro = {_id: req.body.idactualizar};
 
-    const update = {nombre: req.body.nombre, documento: req.body.telefono, telefono: req.body.telefono,  email: req.body.email, rol: req.body.rol};
+    const update = {nombre: req.body.nombre, documento: req.body.documento, habilitado: req.body.habilitado,  email: req.body.email, rol: req.body.rol};
     
     await usuario.findOneAndUpdate(filtro, update);
     

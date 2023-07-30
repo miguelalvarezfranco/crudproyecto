@@ -1,6 +1,8 @@
 const cliente = require('../models/cliente');
 const router = require('../routes/enrutamiento');
 const productos = require('../models/productos');
+const usuarios = require('../models/usuarios');
+
 
 
 
@@ -42,7 +44,9 @@ exports.agregarcliente= (req, res) => {
 
     clientes.save()
 
-    const usuarios = new usuario
+    const usuarios = new usuario({
+        _id :cliente.id,
+    })
     res.redirect('/api/v1/clientes');
     console.log('clientes');
 

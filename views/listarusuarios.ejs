@@ -33,7 +33,7 @@
             <th scope="col">ID</th>
             <th scope="col">NOMBRE</th>
             <th scope="col">DOCUMENTO</th>
-            <th scope="col">TELEFONO</th>
+            <th scope="col">HABILITADO</th>
             <th scope="col">EMAIL</th>
             <th scope="col">ROL</th>
 
@@ -53,7 +53,7 @@
                         <%=elemento.documento%>
                     </td>
                     <td>
-                        <%=elemento.telefono%>
+                        <%=elemento.habilitado%>
                     </td>
                     <td>
                         <%=elemento.email%>
@@ -62,7 +62,7 @@
                         <%=elemento.rol%>
                     </td>
                     <td>
-                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento._id%>`,`<%=elemento.nombre%>`, `<%=elemento.documento %>`,`<%=elemento.telefono%>`,`<%=elemento.email%>`,`<%=elemento.rol%>`)" data-target="#update">Actualizar</button>
+                        <button type="button" class="button button1" data-toggle="modal" onclick="llenar(`<%=elemento._id%>`,`<%=elemento.nombre%>`, `<%=elemento.documento %>`,`<%=elemento.habilitado%>`,`<%=elemento.email%>`,`<%=elemento.rol%>`)" data-target="#update">Actualizar</button>
                         <a href="eliminarusuario/<%=elemento._id%>" class="button btn-success">eliminar</a>
                     </td>
                     
@@ -102,8 +102,8 @@
                     <input type="number" class="form-control" id="actualizardocumento" name="documento" placeholder="documento">
                 </div>
                 <div class="form-group">
-                    <label for="text">telefono</label>
-                    <input type="text" class="form-control" id="actualizartelefono" name="telefono" placeholder="telefono">
+                    <label for="text">habilitado</label>
+                    <input type="text" class="form-control" id="actualizarhabilitado" name="habilitado" placeholder="habilitado">
                 </div>
                 <div class="form-group">
                     <label for="text">email</label>

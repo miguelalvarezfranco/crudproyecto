@@ -11,9 +11,9 @@ const SchemaUsuario = new mongoose.Schema({
         type:Number,
         required:true,
     },
-    telefono:{
-        type:Number,
-        required:true,
+    habilitado:{
+        type:String,
+        required:false
     
     },
     email:{
