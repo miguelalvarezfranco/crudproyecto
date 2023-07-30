@@ -5,10 +5,17 @@ const SchemaUsuario = new mongoose.Schema({
     nombre:{
         type:String,
         required:true,
-    
     },
-    documento:{
+    email:{
+        type:String,
+        required:true,
+    },
+    password:{
         type:Number,
+        required:true,
+    },
+    rol:{
+        type:String,
         required:true,
     },
     habilitado:{
@@ -16,15 +23,6 @@ const SchemaUsuario = new mongoose.Schema({
         required:false
     
     },
-    email:{
-        type:String,
-        required:true,
-    },
-
-    rol:{
-        type:String,
-        required:true,
-    }
 
 
 })
