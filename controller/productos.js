@@ -23,7 +23,6 @@ exports.mostrarproducto =(req, res)=>{ //render asocia un documento que contiene
 
 exports.agregarproducto= (req, res) => {
     const producto =  new productos({
-        _id : req.body.id,
         referencia: req.body.referencia,
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,

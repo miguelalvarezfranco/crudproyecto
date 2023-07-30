@@ -18,15 +18,6 @@ app.get('/carrito', (req, res) => {
     res.render('carrito')
 })
 
-
-app.get('/inicio', (req, res) => {
-    res.render('inicio')
-})
-
-app.get('/landing', (req, res) => {
-    res.render('landing')
-})
-
 app.get('/grafica', (req, res) => {
     res.render('grafica')
 })

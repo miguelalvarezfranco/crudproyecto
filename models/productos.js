@@ -1,12 +1,7 @@
 const mongoose = require('../config/conexion');
 
 const SchemaProducto = new mongoose.Schema({
-    _id:{
-        type: Object,
-        required:true
-    },
     
-
     referencia:{
         type:String,
         required:true,

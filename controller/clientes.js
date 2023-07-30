@@ -4,9 +4,6 @@ const productos = require('../models/productos');
 const usuarios = require('../models/usuarios');
 
 
-
-
-
 //CLIENTES
 exports.cliente = async(req, res)=>{
     let listacliente = await  cliente.find();
@@ -44,9 +41,15 @@ exports.agregarcliente= (req, res) => {
 
     clientes.save()
 
-    const usuarios = new usuario({
-        _id :cliente.id,
-    })
+    // const usuarios = new usuario({
+    //     nombre: cliente.nombre,
+    //     email: cliente.email,
+    //     password: cliente.password,
+    //     rol: cliente.rol,
+    //     habilitado: cliente.habilitado
+
+    // })
+    
     res.redirect('/api/v1/clientes');
     console.log('clientes');
 
@@ -72,8 +75,6 @@ exports.actualizarcliente = async(req,res) => {
     res.redirect('/api/v1/clientes');
     
 };
-
-
 
  //PRODUCTOS
 
