@@ -5,7 +5,7 @@ const rutvende = require('../controller/vendedores')
 const rutven = require('../controller/ventas')
 const rutusu= require('../controller/usuarios') //se traen los documentos de la carpeta controlle//
  //se traen los documentos de la carpeta controlle//
-const reutemail = require('../controller/nodemailer')
+const recup = require('../controller/nodemailer')
 //const rutExcel = require('../controller/productos.')//
 const router = express.Router();
 
@@ -64,7 +64,7 @@ router.get('/paginaprincipal',rutclien.mostrarpagina);
 
 //NODEMAILER
 
-router.get('/enviarcorreo',reutemail.enviaremail);
+router.get('/recuperar',recup.recuperar);
 
 
 //DESCARGA EXCEL
