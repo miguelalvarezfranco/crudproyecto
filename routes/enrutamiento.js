@@ -64,7 +64,7 @@ router.get('/paginaprincipal',rutclien.mostrarpagina);
 
 //NODEMAILER
 
-router.get('/recuperar',recup.recuperar);
+//router.get('/recuperar',recup.recuperar);
 
 
 //DESCARGA EXCEL
