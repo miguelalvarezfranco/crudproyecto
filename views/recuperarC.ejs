@@ -25,25 +25,18 @@
             font-family: 'Times New Roman', Times, serif;
 
         }
-        .boton{
-            align-items: center;
-        }
     </style>
 </head>
 
 <body>
     <h1 class="titulo">Recuperar Contraseña</h1>
 
-    <form class="container">
-        <div class="mb-3  ">
-            <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div style="align-items: center;">
-            <button  onclick="recuperar()" type="submit" class="btn btn-primary" >Enviar correo</button>
-        </div>
-    
+    <form action="recuperarc" method="post">
+        <input type="email"  name="correo"  placeholder="email" >
+        <button type="submit">enviar</button>
     </form>
+
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

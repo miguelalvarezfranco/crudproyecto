@@ -27,9 +27,7 @@ app.get('/datatable', (req, res) => {
 })
 
 
-app.get('/recuperarC', (req, res)=>{
-    res.render('recuperarC')
-})
+
 
 /*app.post('/descargarexcel')*/
 

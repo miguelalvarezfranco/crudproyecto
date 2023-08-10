@@ -1,7 +1,7 @@
 const cliente = require('../models/cliente');
 const router = require('../routes/enrutamiento');
 const productos = require('../models/productos');
-const usuarios = require('../models/usuarios');
+
 
 
 //CLIENTES

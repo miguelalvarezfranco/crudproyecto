@@ -6,6 +6,7 @@ const rutven = require('../controller/ventas')
 const rutusu= require('../controller/usuarios') //se traen los documentos de la carpeta controlle//
  //se traen los documentos de la carpeta controlle//
 const recup = require('../controller/nodemailer')
+
 //const rutExcel = require('../controller/productos.')//
 const router = express.Router();
 
@@ -64,7 +65,13 @@ router.get('/paginaprincipal',rutclien.mostrarpagina);
 
 //NODEMAILER
 
-//router.get('/recuperar',recup.recuperar);
+
+
+router.get('/formcontra',recup.cargarc);
+
+
+router.post('/recuperarc',recup.recuperar);
+
 
 
 //DESCARGA EXCEL
