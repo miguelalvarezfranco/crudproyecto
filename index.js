@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT || 2000
 app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname,'views'));
+app.set('views', path.join(__dirname,'./frontend/views'));
 app.use(morgan('dev'));
 
 app.use(express.json());
@@ -31,7 +31,7 @@ app.get('/datatable', (req, res) => {
 
 /*app.post('/descargarexcel')*/
 
-const Mirouter =require('./routes/enrutamiento');
+const Mirouter =require('./backend/routes/enrutamiento');
 app.use('/api/v1',Mirouter);
 
 
