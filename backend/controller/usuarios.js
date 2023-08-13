@@ -65,8 +65,8 @@ exports.infoUsuario = async (req, res) =>{
     const infoUsu = await  usuarios.findOne({email: req.body.Correo});
 
     if(req.body.email == infoUsu.password){
-        res.send('BIenvenido')
+        res.redirect('paginaprincipal')
     }else{
-
+        console.log(" el usuario no existe")
     }
 }
