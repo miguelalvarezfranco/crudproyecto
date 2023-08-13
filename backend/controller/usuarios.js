@@ -67,6 +67,6 @@ exports.infoUsuario = async (req, res) =>{
     if(req.body.email == infoUsu.password){
         res.redirect('paginaprincipal')
     }else{
-        console.log(" el usuario no existe")
+        console.log("el usuario no existe")
     }
 }

@@ -61,7 +61,7 @@ router.post('/actualizarusuario',rutusu.actualizarusuarios);
 //PAGINA PRINCIPAL
 router.get('/paginaprincipal',rutclien.mostrarpagina);
 
-router.post('/inicio', rutclien.mostrarpagina);
+router.post('/inicio');
 
 
 //NODEMAILER
