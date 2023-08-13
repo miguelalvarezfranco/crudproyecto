@@ -40,5 +40,5 @@ exports.recuperar = async (req, res) => {
 }
 
 exports.cargarc = (req, res) => {
-    res.render('recuperarc');
+    res.render('recuperarC');
 }

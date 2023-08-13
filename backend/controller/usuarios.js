@@ -60,3 +60,13 @@ exports.actualizarusuarios = async(req,res) => {
     res.redirect('/api/v1/usuarios');
     
 };
+
+exports.infoUsuario = async (req, res) =>{
+    const infoUsu = await  usuarios.findOne({email: req.body.Correo});
+
+    if(req.body.email == infoUsu.password){
+        res.send('BIenvenido')
+    }else{
+
+    }
+}
