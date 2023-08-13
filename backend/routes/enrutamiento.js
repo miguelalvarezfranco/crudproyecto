@@ -61,17 +61,16 @@ router.post('/actualizarusuario',rutusu.actualizarusuarios);
 //PAGINA PRINCIPAL
 router.get('/paginaprincipal',rutclien.mostrarpagina);
 
+router.post('/inicio');
 
 
 //NODEMAILER
-
 
 
 router.get('/formcontra',recup.cargarc);
 
 
 router.post('/recuperarc',recup.recuperar);
-
 
 
 //DESCARGA EXCEL
