@@ -1,83 +1,68 @@
-const cliente = require('../models/cliente');
-const router = require('../routes/enrutamiento');
-const productos = require('../models/productos');
+const cliente = require("../models/cliente");
+const router = require("../routes/enrutamiento");
+const productos = require("../models/productos");
 
+// CLIENTES
+exports.cliente = async (req, res) => {
+  const listacliente = await cliente.find();
+  console.log(listacliente);
 
+  res.render("listarclientes", {
 
-//CLIENTES
-exports.cliente = async(req, res)=>{
-    let listacliente = await  cliente.find();
-    console.log(listacliente);
-
-    res.render( "listarclientes",{
-
-        "cliente":listacliente,
-    })
-
+    cliente: listacliente
+  });
 };
-exports.mostrarcliente =(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
-    res.render('mostrarcliente');
-
-}
-
-exports.mostrarpagina = async(req, res)=>{ //render asocia un documento que contiene lo que va mostarr al usuario  //
-    let producto = await productos.find()
-    res.render('paginaprincipal' ,{
-        "producto": producto});
-    }
-
-
-exports.agregarcliente= (req, res) => {
-    const clientes =  new cliente({
-        _id : req.body.id,
-        nombre: req.body.nombre,
-        telefono: req.body.telefono,
-        ubicacion: req.body.ubicacion,
-        centro: req.body.centro,
-        totalComprado: req.body.totalcomprado,
-        historicoDeCompras: req.body.historicodecompras, 
-
-    });
-
-    clientes.save()
-
-    // const usuarios = new usuario({
-    //     nombre: cliente.nombre,
-    //     email: cliente.email,
-    //     password: cliente.password,
-    //     rol: cliente.rol,
-    //     habilitado: cliente.habilitado
-
-    // })
-    
-    res.redirect('/api/v1/clientes');
-    console.log('clientes');
-
+exports.mostrarcliente = (req, res) => { // render asocia un documento que contiene lo que va mostarr al usuario  //
+  res.render("mostrarcliente");
 };
 
-exports.eliminar = async (req, res)=>{
-    const id = req.params.id
-    await cliente.findByIdAndDelete({'_id':id});
-
-    res.redirect('/api/v1/clientes');
-
+exports.mostrarpagina = async (req, res) => { // render asocia un documento que contiene lo que va mostarr al usuario  //
+  const producto = await productos.find();
+  res.render("paginaprincipal", { producto });
 };
 
-exports.actualizarcliente = async(req,res) => {
+exports.agregarcliente = (req, res) => {
+  const clientes = new cliente({
+    _id: req.body.id,
+    nombre: req.body.nombre,
+    telefono: req.body.telefono,
+    ubicacion: req.body.ubicacion,
+    centro: req.body.centro,
+    totalComprado: req.body.totalcomprado,
+    historicoDeCompras: req.body.historicodecompras
 
-    const filtro = {_id: req.body.idactualizar};
+  });
 
-    const update = {nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion,  totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras};
-    
-    await cliente.findOneAndUpdate(filtro, update);
+  clientes.save();
 
+  // const usuarios = new usuario({
+  //     nombre: cliente.nombre,
+  //     email: cliente.email,
+  //     password: cliente.password,
+  //     rol: cliente.rol,
+  //     habilitado: cliente.habilitado
 
-    res.redirect('/api/v1/clientes');
-    
+  // })
+
+  res.redirect("/api/v1/clientes");
+  console.log("clientes");
 };
 
- //PRODUCTOS
+exports.eliminar = async (req, res) => {
+  const id = req.params.id;
+  await cliente.findByIdAndDelete({ _id: id });
 
+  res.redirect("/api/v1/clientes");
+};
 
+exports.actualizarcliente = async (req, res) => {
+  const filtro = { _id: req.body.idactualizar };
 
+  const update = { nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras };
 
+  await cliente.findOneAndUpdate(filtro, update);
+
+  res.redirect("/api/v1/clientes");
+};
+
+// PRODUCTOS

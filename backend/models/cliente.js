@@ -1,46 +1,43 @@
-const mongoose = require('../config/conexion');
+const mongoose = require("../config/conexion");
 
 const SchemaCliente = new mongoose.Schema({
-    _id:{
-        type: Number,
-        required:true,
-        min:0,
-        max:1000
-    
-    },
-    nombre:{
-        type:String,
-        required:true,
-    
+  _id: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 1000
 
-    },
-    telefono:{
-        type:Number,
-    
+  },
+  nombre: {
+    type: String,
+    required: true
 
-    },
-    ubicacion:{
-    
-            centro:{
-                type:Array,
-            },
-            zoom:{
-                type:Number
-            }
-    
-    },
-    totalComprado:{
-        type:Number,
+  },
+  telefono: {
+    type: Number
 
-        
+  },
+  ubicacion: {
+
+    centro: {
+      type: Array
     },
-    historicoDeCompras:{
-        type:Number,
-        
+    zoom: {
+      type: Number
     }
 
-})
+  },
+  totalComprado: {
+    type: Number
 
-const cliente = mongoose.model('cliente', SchemaCliente)
+  },
+  historicoDeCompras: {
+    type: Number
+
+  }
+
+});
+
+const cliente = mongoose.model("cliente", SchemaCliente);
 
 module.exports = cliente;
