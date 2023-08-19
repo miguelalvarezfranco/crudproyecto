@@ -3,7 +3,7 @@ const { mongoose } = require("mongoose");
 const Productos = require("../models/productos");
 
 exports.producto = async (req, res) => {
-  const listaproducto = await Productos.find({});
+  const listaproducto = await Productos.find();
   // console.log(listaproducto);
 
   res.render("listarproductos", {
