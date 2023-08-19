@@ -1,12 +1,9 @@
-const { Mongoose, default: mongoose } = require("mongoose");
 const usuario = require("../models/usuarios");
-const usuarios = require("../models/usuarios");
-
-const router = require("../routes/enrutamiento.js");
+const Usuarios = require("../models/usuarios");
 
 // USUARIO
 exports.usuario = async (req, res) => {
-  const listausuario = await usuarios.find();
+  const listausuario = await Usuarios.find();
   console.log(listausuario);
 
   res.render("listarusuarios", {
@@ -19,7 +16,7 @@ exports.mostrarusuarios = (req, res) => { // render asocia un documento que cont
 };
 
 exports.agregarusuario = (req, res) => {
-  const usuario = new usuarios({
+  const usuario = new Usuarios({
     _id: req.body.id,
     nombre: req.body.nombre,
     email: req.body.email,
@@ -36,7 +33,7 @@ exports.agregarusuario = (req, res) => {
 
 exports.eliminarusuarios = async (req, res) => {
   const id = req.params.id;
-  await usuarios.findByIdAndDelete({ _id: id });
+  await Usuarios.findByIdAndDelete({ _id: id });
 
   res.redirect("/api/v1/usuarios");
 };
@@ -52,9 +49,9 @@ exports.actualizarusuarios = async (req, res) => {
 };
 
 exports.infoUsuario = async (req, res) => {
-  const infoUsu = await usuarios.findOne({ email: req.body.Correo });
+  const infoUsu = await Usuarios.findOne({ email: req.body.Correo });
 
-  if (req.body.email == infoUsu.password) {
+  if (req.body.email === infoUsu.password) {
     res.redirect("paginaprincipal");
   } else {
     console.log("el usuario no existe");

@@ -1,10 +1,9 @@
-const { Mongoose, default: mongoose } = require("mongoose");
-const producto = require("../models/productos");
-const productos = require("../models/productos");
-const router = require("../routes/enrutamiento");
+const { mongoose } = require("mongoose");
+// const Producto = require("../models/productos");
+const Productos = require("../models/productos");
 
 exports.producto = async (req, res) => {
-  const listaproducto = await productos.find({});
+  const listaproducto = await Productos.find({});
   // console.log(listaproducto);
 
   res.render("listarproductos", {
@@ -17,7 +16,7 @@ exports.mostrarproducto = (req, res) => { // render asocia un documento que cont
 };
 
 exports.agregarproducto = (req, res) => {
-  const producto = new productos({
+  const producto = new Productos({
     referencia: req.body.referencia,
     nombre: req.body.nombre,
     descripcion: req.body.descripcion,
@@ -35,15 +34,15 @@ exports.agregarproducto = (req, res) => {
 
 exports.eliminarproducto = async (req, res) => {
   const id = req.params.id;
-  await productos.findByIdAndDelete({ _id: id });
+  await Productos.findByIdAndDelete({ _id: id });
   res.redirect("/api/v1/productos");
 };
 
 exports.actualizarproducto = async (req, res) => {
   const nuevo = { _id: new mongoose.Types.ObjectId(), referencia: req.body.referencia, nombre: req.body.nombre, descripcion: req.body.descripcion, precio: req.body.precio, stock: req.body.stock, habilitado: req.body.habilitado, imagen: req.body.imagen };
-  await productos.findOneAndRemove({ referencia: req.body.referencia });
+  await Productos.findOneAndRemove({ referencia: req.body.referencia });
 
-  await productos.insertMany(nuevo);
+  await Productos.insertMany(nuevo);
 
   res.redirect("/api/v1/productos");
 };

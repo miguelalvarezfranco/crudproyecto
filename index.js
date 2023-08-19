@@ -1,4 +1,3 @@
-'use strict'
 const express = require("express");
 const app = express();
 const morgan = require("morgan"); // para gestionar las request procesadas//
@@ -14,23 +13,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/carrito", (req, res) => {
-res.render("carrito");
+  res.render("carrito");
 });
 
 app.get("/grafica", (req, res) => {
-res.render("grafica");
+  res.render("grafica");
 });
 
 app.get("/datatable", (req, res) => {
-res.render("datatable");
+  res.render("datatable");
 });
 
 /* app.post('/descargarexcel') */
 
 const Mirouter = require("./backend/routes/enrutamiento");
-const { strict } = require("assert");
 app.use("/api/v1", Mirouter);
 
 app.listen(PORT, () => {
-console.log(`el servidor esta en linea ...!! ${PORT}`);
+  console.log(`el servidor esta en linea ...!! ${PORT}`);
 });

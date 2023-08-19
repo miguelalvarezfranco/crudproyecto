@@ -1,10 +1,9 @@
-const cliente = require("../models/cliente");
-const router = require("../routes/enrutamiento");
+const Cliente = require("../models/cliente");
 const productos = require("../models/productos");
 
 // CLIENTES
 exports.cliente = async (req, res) => {
-  const listacliente = await cliente.find();
+  const listacliente = await Cliente.find();
   console.log(listacliente);
 
   res.render("listarclientes", {
@@ -22,7 +21,7 @@ exports.mostrarpagina = async (req, res) => { // render asocia un documento que 
 };
 
 exports.agregarcliente = (req, res) => {
-  const clientes = new cliente({
+  const clientes = new Cliente({
     _id: req.body.id,
     nombre: req.body.nombre,
     telefono: req.body.telefono,
@@ -50,7 +49,7 @@ exports.agregarcliente = (req, res) => {
 
 exports.eliminar = async (req, res) => {
   const id = req.params.id;
-  await cliente.findByIdAndDelete({ _id: id });
+  await Cliente.findByIdAndDelete({ _id: id });
 
   res.redirect("/api/v1/clientes");
 };
@@ -60,7 +59,7 @@ exports.actualizarcliente = async (req, res) => {
 
   const update = { nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras };
 
-  await cliente.findOneAndUpdate(filtro, update);
+  await Cliente.findOneAndUpdate(filtro, update);
 
   res.redirect("/api/v1/clientes");
 };

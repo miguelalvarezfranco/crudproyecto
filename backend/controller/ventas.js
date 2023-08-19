@@ -1,9 +1,8 @@
-const { Mongoose, default: mongoose } = require("mongoose");
-const ventas = require("../models/ventas");
-const router = require("../routes/enrutamiento.js");
+const { mongoose } = require("mongoose");
+const Ventas = require("../models/ventas");
 
 exports.venta = async (req, res) => {
-  const listaventa = await ventas.find();
+  const listaventa = await Ventas.find();
   console.log(listaventa);
 
   res.render("listarventas", {
@@ -17,7 +16,7 @@ exports.mostrarventas = (req, res) => { // render asocia un documento que contie
 };
 
 exports.agregarventa = (req, res) => {
-  const venta = new ventas({
+  const venta = new Ventas({
     productosventa: req.body.productosventa,
     subtotalventa: req.body.subtotalventa,
     fechadelaventa: req.body.fechadelaventa,
@@ -35,15 +34,15 @@ exports.agregarventa = (req, res) => {
 
 exports.eliminarventa = async (req, res) => {
   const id = req.params.id;
-  await ventas.findByIdAndDelete({ _id: id });
+  await Ventas.findByIdAndDelete({ _id: id });
   res.redirect("/api/v1/ventas");
 };
 
 exports.actualizarventas = async (req, res) => {
   const nuevo = { _id: new mongoose.Types.ObjectId(), impuesto: req.body.impuesto, productosventa: req.body.productosventa, subtotalventa: req.body.subtotalventa, fechadelaventa: req.body.fechadelaventa, totalventa: req.body.totalventa, clientequerealizacompra: req.body.clientenquerealizalacompra, vendedorquedespachaventa: req.body.vendedorquedespachalaventa };
-  await ventas.findOneAndRemove({ impuesto: req.body.impuesto });
+  await Ventas.findOneAndRemove({ impuesto: req.body.impuesto });
 
-  await ventas.insertMany(nuevo);
+  await Ventas.insertMany(nuevo);
 
   res.redirect("/api/v1/ventas");
 };
