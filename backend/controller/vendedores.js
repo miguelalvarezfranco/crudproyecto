@@ -35,10 +35,20 @@ exports.eliminarvendedor = async (req, res) => {
 };
 
 exports.actualizarvendedor = async (req, res) => {
-  const nuevo = { _id: new Mongoose.Types.ObjectId(), ventasdespachadas: req.body.ventasdespachadas, nombre: req.body.nombre, documento: req.body.documento };
-  await Vendedores.findOneAndRemove({ ventasdespachadas: req.body.ventasdespachadas });
+  const filtro = { _id: req.body.idactualizar };
 
-  await Vendedores.insertMany(nuevo);
+  const update = { ventasdespachadas: req.body.ventasdespachadas, nombre: req.body.nombre, documento: req.body.documento };
+  await Vendedores.findOneAndRemove(filtro, update);
 
   res.redirect("/api/v1/vendedores");
 };
+
+// exports.actualizarcliente = async (req, res) => {
+//   const filtro = { _id: req.body.idactualizar };
+
+//   const update = { nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras };
+
+//   await Cliente.findOneAndUpdate(filtro, update);
+
+//   res.redirect("/api/v1/clientes");
+// };
