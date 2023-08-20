@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/static/estilos.css">
     <title>Document</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 
 <style>
@@ -20,7 +22,7 @@
         font-family: Arial, sans-serif;
     }
 
-    .container-nav {
+    .container-fluid {
         position: sticky;
         z-index: 3;
         top: 0;
@@ -34,17 +36,14 @@
 
     }
 
-    .navbar-logo {
+    .navbar-brand {
         justify-content: center;
         margin-left: 20px;
+        margin-top: 10px;
         color: #fff;
         cursor: pointer;
         color: #FFFFFF;
-        background: #333333;
-        text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
-
-
-
+        background: #68c1eb;
     }
 
     .ver-carrito {
@@ -52,23 +51,11 @@
         margin-right: 20px;
         margin-top: 2.1vh;
         cursor: pointer;
-
     }
 
     .formu input {
         border-radius: 10px;
         padding: 10px;
-
-    }
-
-    .modal-body {
-        background: #616161;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #9bc5c3, #616161);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #9bc5c3, #616161);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     }
 
     .card {
@@ -89,7 +76,7 @@
     .card :hover {
         transform: scale(1.1);
         box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 0);
-        
+
     }
 
     .card-body a {
@@ -103,28 +90,66 @@
     .eliminar-producto {
         cursor: pointer;
     }
-
-
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light d-flex justify-content-between">
+        <div>
+            <a class="navbar-brand" href="#">Tienda Virtual Store</a>
+        </div>
 
-    <div class="container-nav">
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> -->
+        <div class="container-fluid">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            CLIENTES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/mostrarclientes">Registrar</a></li>
+                            <li><a class="dropdown-item" href="/clientes">Listar</a></li>
+                        </ul>
+                    </li>
 
-        <nav class="navbar">
-            <h1 class="navbar-logo">NUESTROS PRODUCTOS 👖👔</h1>
-            <div class="d-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            USUARIO
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/mostrarusuarios">Registrar</a></li>
+                            <li><a class="dropdown-item" href="/usuarios">Listar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            VENTAS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/mostrarventas">Registrar</a></li>
+                            <li><a class="dropdown-item" href="/ventas">Listar</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="d-flex justify-content-between">
                 <button class="ver-carrito btn" data-toggle="modal" data-target="#verCarrito"
                     onclick="pintarCarrito()">🛒</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"
                     style="margin-right: 20px;" >
                     iniciar sesion
                 </button>
-            </div>
-
-        </nav>
-
-    </div>
+            </div> 
+        </div>
+    </nav>
 
     <!-- Carrito-->
     <div class="modal fade  " id="verCarrito" tabindex="-1" aria-labelledby="carrito" aria-hidden="true">
@@ -140,7 +165,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark"  onclick="comprar('${elemento.id}')">Comprar💲</button>
+                    <button type="button" class="btn btn-dark" onclick="comprar('${elemento.id}')">Comprar💲</button>
                 </div>
             </div>
         </div>
@@ -166,15 +191,15 @@
 
                             <label for="username">Correo:</label>
                             <br>
-                            <input type="email"  name="Correo" placeholder="Ingrese su correo">
+                            <input type="email" name="Correo" placeholder="Ingrese su correo">
                             <br>
                             <br>
                             <label for="password">Contraseña:</label>
                             <br>
-                            <input type="password"  name="password" placeholder="Ingrese su contraseña">
+                            <input type="password" name="password" placeholder="Ingrese su contraseña">
                             <br>
                             <br>
-                            <input  type="submit" class="btn btn-outline-success" value="Iniciar Sesión" <br><a
+                            <input type="submit" class="btn btn-outline-success" value="Iniciar Sesión" <br><a
                                 href="formcontra">Recuperar Contraseña</a><br><br>
                             <br>
                             <br>
@@ -195,13 +220,14 @@
     <br>
 
     <%producto.forEach(function(elemento){%>
-        <div class="card" style="width: 17rem;">
+        <div class="card" style="width: 17rem; height: 450px">
             <img src="https://source.unsplash.com/300x201/?<%=elemento.nombre%>" class="card-img-top" alt="..">
             <div class="card-body">
                 <h5 class="card-title">
                     <%=elemento.nombre%>
                 </h5>
-                <p class="card-text">
+                <p class="card-text" style="height: 80px;">
+
                     <%=elemento.descripcion%>
                 </p>
                 <p class="card-text">
@@ -209,13 +235,14 @@
                 </p>
 
                 <button type="button" style="border-radius: 15px; padding: 12px; "
-                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Añadir Al Carrito</button>
+                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Añadir
+                    Al Carrito</button>
             </div>
         </div>
         <% })%>
             <script>
 
-                let carritoCompras = JSON.parse(localStorage.getItem("Micarrito" )) || [];
+                let carritoCompras = JSON.parse(localStorage.getItem("Micarrito")) || [];
 
 
                 let body = document.getElementById('body-carrito')
@@ -223,44 +250,44 @@
 
                 function Carrito(id, imagen, nombre, precio) {
 
-                const repeat = carritoCompras.some((repeatid) => repeatid.id === id);
-        
+                    const repeat = carritoCompras.some((repeatid) => repeatid.id === id);
 
-                if (repeat){
-                    carritoCompras.map((produ) => {
-                        if (produ.id === id){
-                            produ.cantidad++; 
-                        }
-                    });
-                }else{
-                    carritoCompras.push({
-                        id: id,
-                        imagen: imagen,
-                        nombre: nombre,
-                        precio: precio,
-                        cantidad: 1,
-                    });
-                }
+
+                    if (repeat) {
+                        carritoCompras.map((produ) => {
+                            if (produ.id === id) {
+                                produ.cantidad++;
+                            }
+                        });
+                    } else {
+                        carritoCompras.push({
+                            id: id,
+                            imagen: imagen,
+                            nombre: nombre,
+                            precio: precio,
+                            cantidad: 1,
+                        });
+                    }
                     console.log(carritoCompras);
                     cookies();
                     pintarCarrito();
-                
+
                 }
 
-                function cookies(){
+                function cookies() {
                     localStorage.setItem("Micarrito", JSON.stringify(carritoCompras));
                 }
 
-                
+
                 function pintarCarrito() {
                     body.innerHTML = '';
 
                     carritoCompras.forEach(elemento => {
                         let carrito = document.createElement('div')
                         carrito.className = "d-flex justify-content-evenly align-items-center"
-                        carrito.innerHTML = 
+                        carrito.innerHTML =
 
-                    `<div class="mb-3 w-25">
+                            `<div class="mb-3 w-25">
                             <img src="https://source.unsplash.com/featured/300x201" style="width:200px;">
                         </div>
                         <div class="w-25">
@@ -269,16 +296,15 @@
                             </div>
                             <div>
                                 <div class=" d-flex justify-content-between ">
-                                    <button type="button"  class="btn btn-primary"   onclick="sumar('${elemento.id}')" >+</button>
+                                    <button type="button"  class="btn btn-primary"  onclick="sumar('${elemento.id}')" >+</button>
                                     <p>cantidad:   ${elemento.cantidad} </p>
                                     <button type="button"   class="btn btn-primary" onclick="restar('${elemento.id}')">-</button>
                                 </div>
                                 <div class="d-flex justify-content-center mt-3">
-                                    
+                                    <p>precio:   ${elemento.precio} </p>
                                 </div>
                             </div>
                         </div>`;
-                                        
 
                         body.append(carrito);
 
@@ -302,7 +328,7 @@
                 }
 
                 const eliminarProducto = () => {
-                    const foundId =  carritoCompras.find((elemento) => elemento.id);
+                    const foundId = carritoCompras.find((elemento) => elemento.id);
 
                     console.log(foundId);
 
@@ -312,41 +338,41 @@
 
                     pintarCarrito();
                     cookies();
-                    
+
                 };
 
-                function sumar (id) {
+                function sumar(id) {
                     carritoCompras.map((produ) => {
-                        if (produ.id === id){
-                            produ.cantidad++; 
+                        if (produ.id === id) {
+                            produ.cantidad++;
                             cookies();
                             pintarCarrito()
                         }
                     });
 
-                
+
                 }
 
-                function restar (id) {
+                function restar(id) {
                     carritoCompras.map((produ) => {
-                        if (produ.id == id){
-                            produ.cantidad --; 
+                        if (produ.id == id) {
+                            produ.cantidad--;
                             cookies();
                             pintarCarrito()
 
-                        if (produ.id == 0){
-                            pintarCarrito()
-                            cookies(); 
-                            eliminarProducto();
+                            if (produ.id == 0) {
+                                pintarCarrito()
+                                cookies();
+                                eliminarProducto();
+                            }
                         }
-                        }
-                        
+
                     });
 
                 }
 
                 function comprar(id) {
-                        alert("su producto fue comprado satisfactoriamente");
+                    alert("su producto fue comprado satisfactoriamente");
 
                 }
 
@@ -356,9 +382,13 @@
 
             </script>
 
-                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-                            
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+                integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+                crossorigin="anonymous"></script>
+
 
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
                 integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -368,7 +398,7 @@
                 crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
                 integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-                crossorigin="anonymous"></script> 
+                crossorigin="anonymous"></script>
 
 
 </body>
