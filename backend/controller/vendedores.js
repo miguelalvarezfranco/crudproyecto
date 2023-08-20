@@ -1,6 +1,4 @@
-const { Mongoose } = require("mongoose");
 const Vendedores = require("../models/vendedores");
-
 exports.vendedor = async (req, res) => {
   const listavendedor = await Vendedores.find();
   console.log(listavendedor);
@@ -17,10 +15,10 @@ exports.mostrarvendedores = (req, res) => { // render asocia un documento que co
 
 exports.agregarvendedor = (req, res) => {
   const vendedor = new Vendedores({
+    _id: req.body.id,
     nombre: req.body.nombre,
     documento: req.body.documento,
     ventasdespachadas: req.body.ventasdespachadas
-
   });
 
   vendedor.save();
@@ -38,17 +36,8 @@ exports.actualizarvendedor = async (req, res) => {
   const filtro = { _id: req.body.idactualizar };
 
   const update = { ventasdespachadas: req.body.ventasdespachadas, nombre: req.body.nombre, documento: req.body.documento };
+
   await Vendedores.findOneAndRemove(filtro, update);
 
   res.redirect("/api/v1/vendedores");
 };
-
-// exports.actualizarcliente = async (req, res) => {
-//   const filtro = { _id: req.body.idactualizar };
-
-//   const update = { nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras };
-
-//   await Cliente.findOneAndUpdate(filtro, update);
-
-//   res.redirect("/api/v1/clientes");
-// };

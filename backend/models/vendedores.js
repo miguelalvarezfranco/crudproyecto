@@ -6,7 +6,6 @@ const Schemavendedores = new mongoose.Schema({
     required: true,
     min: 0,
     max: 1000
-
   },
   nombre: {
     type: String,
@@ -19,8 +18,7 @@ const Schemavendedores = new mongoose.Schema({
 
   },
   ventasdespachadas: {
-    type: Number,
-    required: false
+    type: Number
   }
 
 });
