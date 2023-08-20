@@ -27,7 +27,7 @@ app.get("/datatable", (req, res) => {
 /* app.post('/descargarexcel') */
 
 const Mirouter = require("./backend/routes/enrutamiento");
-app.use("/api/v1", Mirouter);
+app.use("/", Mirouter);
 
 app.listen(PORT, () => {
   console.log(`el servidor esta en linea ...!! ${PORT}`);
