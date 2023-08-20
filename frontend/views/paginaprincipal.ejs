@@ -37,14 +37,11 @@
     .navbar-brand {
         justify-content: center;
         margin-left: 20px;
+        margin-top: 10px;
         color: #fff;
         cursor: pointer;
         color: #FFFFFF;
-        background: #7ec2e2;
-
-
-
-
+        background: #68c1eb;
     }
 
     .ver-carrito {
@@ -52,13 +49,11 @@
         margin-right: 20px;
         margin-top: 2.1vh;
         cursor: pointer;
-
     }
 
     .formu input {
         border-radius: 10px;
         padding: 10px;
-
     }
     .card {
         display: inline-block;
@@ -74,21 +69,17 @@
         background: linear-gradient(to right, #ffffff, #abbaab);
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-
     .card :hover {
         transform: scale(1.1);
         box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 0);
         
     }
-
     .card-body a {
         margin-top: 2px;
     }
-
     .contenedor {
         margin-left: 60px;
     }
-
     .eliminar-producto {
         cursor: pointer;
     }
@@ -97,7 +88,7 @@
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light ">
         <a class="navbar-brand" href="#">Tienda Virtual Store</a>
     
         <div class="container-fluid">
@@ -124,7 +115,30 @@
                 <li><a class="dropdown-item" href="/api/v1/clientes">Listar</a></li>
                 </ul>
             </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                USUARIO
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/api/v1/mostrarusuarios">Registrar</a></li>
+                <li><a class="dropdown-item" href="/api/v1/usuarios">Listar</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                VENTAS
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/api/v1/mostrarventas">Registrar</a></li>
+                <li><a class="dropdown-item" href="/api/v1/ventas">Listar</a></li>
+                </ul>
+            </li>
+
             </ul>
+
+
         </div>
         </div>
     </nav>
@@ -217,7 +231,7 @@
     <br>
 
     <%producto.forEach(function(elemento){%>
-        <div class="card" style="width: 15rem;">
+        <div class="card" style="width: 17rem;">
             <img src="https://source.unsplash.com/300x201/?<%=elemento.nombre%>" class="card-img-top" alt="..">
             <div class="card-body">
                 <h5 class="card-title">
