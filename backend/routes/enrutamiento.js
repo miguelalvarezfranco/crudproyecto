@@ -46,7 +46,7 @@ router.get("/eliminarusuario/:id", rutusu.eliminarusuarios);
 router.post("/actualizarusuario", rutusu.actualizarusuarios);
 
 // PAGINA PRINCIPAL
-router.get("/", rutclien.mostrarpagina);
+router.get("/paginaprincipal", rutclien.mostrarpagina);
 
 router.post("/inicio");
 
