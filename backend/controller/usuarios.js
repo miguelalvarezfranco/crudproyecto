@@ -7,11 +7,11 @@ exports.usuario = async (req, res) => {
   console.log(listausuario);
 
   res.render("listarusuarios", {
-
-    usuario: listausuario
+    usuario: listausuario,
   });
 };
-exports.mostrarusuarios = (req, res) => { // render asocia un documento que contiene lo que va mostarr al usuario  //
+exports.mostrarusuarios = (req, res) => {
+  // render asocia un documento que contiene lo que va mostarr al usuario  //
   res.render("mostrarusuarios");
 };
 
@@ -22,8 +22,7 @@ exports.agregarusuario = (req, res) => {
     email: req.body.email,
     password: req.body.password,
     rol: req.body.rol,
-    habilitado: req.body.habilitado
-
+    habilitado: req.body.habilitado,
   });
 
   usuario.save();
@@ -40,25 +39,22 @@ exports.eliminarusuarios = async (req, res) => {
 
 exports.actualizarusuarios = async (req, res) => {
   const filtro = { _id: req.body.idactualizar };
-
-<<<<<<< HEAD
-    if(req.body.email == infoUsu.password){
-        res.redirect('paginaprincipal')
-        return res.status(400).json(
-            {error:'Email ya registrado'}
-        )
-    }
-}
-=======
-  const update = { nombre: req.body.nombre, email: req.body.email, password: req.body.password, rol: req.body.rol, habilitado: req.body.habilitado };
+  const update = {
+    nombre: req.body.nombre,
+    email: req.body.email,
+    password: req.body.password,
+    rol: req.body.rol,
+    habilitado: req.body.habilitado,
+  };
 
   await usuario.findOneAndUpdate(filtro, update);
 
-  res.redirect("/api/v1/usuarios");
+ res.redirect("/api/v1/usuarios");
+
 };
 
 exports.infoUsuario = async (req, res) => {
-  const infoUsu = await Usuarios.findOne({ email: req.body.Correo });
+const infoUsu = await Usuarios.findOne({ email: req.body.Correo });
 
   if (req.body.email === infoUsu.password) {
     res.redirect("paginaprincipal");
@@ -66,4 +62,3 @@ exports.infoUsuario = async (req, res) => {
     console.log("el usuario no existe");
   }
 };
->>>>>>> 80e90f50dcd327a699e88c3e99ca6a212a8add00
