@@ -64,8 +64,10 @@ if(infoUsu.password === contraUsuario){
   console.log(true);
 }
 
-if(infoUsu.rol === vendedor ){
-  res.redirect("/paginaprincipal")
+if(infoUsu.rol === 'vendedor' ){
+  res.redirect("/inicio");
+}else{
+  console.log("El usuario no existe");
 }
 
 

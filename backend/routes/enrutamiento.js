@@ -60,4 +60,6 @@ router.post("/recuperarc", recup.recuperar);
 
 router.get("/descargar");
 
+router.post("/inicio", rutvende.contraUsuario);
+
 module.exports = router;

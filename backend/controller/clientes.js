@@ -41,7 +41,7 @@ exports.agregarcliente = (req, res) => {
       nombre: clientes.nombre,
       email: clientes.email,
       password: clientes.password,
-      rol: 'clientes',
+      rol: 'clientes', 
       habilitado: true,
   });
 
