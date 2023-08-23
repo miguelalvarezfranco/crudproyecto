@@ -49,7 +49,7 @@ exports.actualizarusuarios = async (req, res) => {
 
   await usuario.findOneAndUpdate(filtro, update);
 
- res.redirect("/api/v1/usuarios");
+res.redirect("/api/v1/usuarios");
 
 };
 

@@ -44,6 +44,7 @@
         cursor: pointer;
         color: #FFFFFF;
         background: #68c1eb;
+        width: 300px;
     }
 
     .ver-carrito {
@@ -82,18 +83,26 @@
     .card-body a {
         margin-top: 2px;
     }
-
-
-
     .eliminar-producto {
         cursor: pointer;
+    }
+    .cantidadCarrito{
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        padding: 4px;
+        top: 18px;
+        right: 11%;
+        position: absolute;
+        display: none;
     }
 </style>
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light d-flex justify-content-between">
         <div>
-            <a class="navbar-brand" href="#">Tienda Virtual Store</a>
+            <h1 class="navbar-brand">Tienda Virtual Store</h1>  
         </div>
 
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,7 +149,7 @@
             </div>
             <div class="d-flex justify-content-between">
                 <button class="ver-carrito btn" data-toggle="modal" data-target="#verCarrito"
-                    onclick="pintarCarrito()">🛒</button>
+                    onclick="pintarCarrito()">🛒 <span id="cantidadCarrito" class="cantidadCarrito"></span> </button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"
                     style="margin-right: 20px;" >
                     iniciar sesion
@@ -175,7 +184,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesion</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -229,7 +238,7 @@
                     <%=elemento.descripcion%>
                 </p>
                 <p class="card-text">
-                    <%=elemento.precio%>
+                    <p>Precio: <%=elemento.precio%></p>
                 </p>
 
                 <button type="button" style="border-radius: 15px; padding: 12px; "
@@ -267,6 +276,7 @@
                         });
                     }
                     console.log(carritoCompras);
+                    carritoCount();
                     cookies();
                     pintarCarrito();
 
@@ -339,6 +349,16 @@
 
                 };
 
+                const cantidadCarrito = document.getElementById('cantidadCarrito');
+
+                const carritoCount = () =>{
+                    cantidadCarrito.style.display = 'block';
+                    cantidadCarrito.innerText = carritoCompras.length;
+                };
+
+
+
+
                 function sumar(id) {
                     carritoCompras.map((produ) => {
                         if (produ.id === id) {
@@ -373,6 +393,8 @@
                     alert("su producto fue comprado satisfactoriamente");
 
                 }
+
+                
 
 
 
