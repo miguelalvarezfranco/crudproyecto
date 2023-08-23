@@ -18,22 +18,24 @@ const SchemaCliente = new mongoose.Schema({
 
   },
   ubicacion: {
-
-    centro: {
-      type: Array
-    },
-    zoom: {
-      type: Number
-    }
+    type:String,
 
   },
   totalComprado: {
-    type: Number
+    type: Number,
+    default :0,
 
   },
   historicoDeCompras: {
-    type: Number
+    type: Number,
+    default :0,
 
+  },
+  email:{
+    type:String
+  },
+  password:{
+    type:String
   }
 
 });

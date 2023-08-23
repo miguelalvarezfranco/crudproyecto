@@ -26,7 +26,7 @@ exports.agregarusuario = (req, res) => {
   });
 
   usuario.save();
-  res.redirect("/api/v1/usuarios");
+  res.redirect("/usuarios");
   console.log("usuarios");
 };
 
@@ -34,7 +34,7 @@ exports.eliminarusuarios = async (req, res) => {
   const id = req.params.id;
   await Usuarios.findByIdAndDelete({ _id: id });
 
-  res.redirect("/api/v1/usuarios");
+  res.redirect("/usuarios");
 };
 
 exports.actualizarusuarios = async (req, res) => {
@@ -49,16 +49,31 @@ exports.actualizarusuarios = async (req, res) => {
 
   await usuario.findOneAndUpdate(filtro, update);
 
-res.redirect("/api/v1/usuarios");
+res.redirect("/usuarios");
 
 };
 
 exports.infoUsuario = async (req, res) => {
 const infoUsu = await Usuarios.findOne({ email: req.body.Correo });
 
-  if (req.body.email === infoUsu.password) {
-    res.redirect("paginaprincipal");
-  } else {
-    console.log("el usuario no existe");
-  }
+console.log(infoUsu);
+
+const contraUsuario = req.body.password
+
+if(infoUsu.password === contraUsuario){
+  console.log(true);
+}
+
+if(infoUsu.rol === vendedor ){
+  res.redirect("/paginaprincipal")
+}
+
+
+
+  // if (req.body.email === infoUsu.password) {
+  //   res.redirect("paginaprincipal");
+  // } else {
+  //   console.log("el usuario no existe");
+  // }
+
 };

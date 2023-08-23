@@ -28,14 +28,14 @@ exports.agregarventa = (req, res) => {
   });
 
   venta.save();
-  res.redirect("/api/v1/ventas");
+  res.redirect("/ventas");
   console.log("ventas");
 };
 
 exports.eliminarventa = async (req, res) => {
   const id = req.params.id;
   await Ventas.findByIdAndDelete({ _id: id });
-  res.redirect("/api/v1/ventas");
+  res.redirect("/ventas");
 };
 
 exports.actualizarventas = async (req, res) => {
@@ -44,5 +44,5 @@ exports.actualizarventas = async (req, res) => {
 
   await Ventas.insertMany(nuevo);
 
-  res.redirect("/api/v1/ventas");
+  res.redirect("/ventas");
 };

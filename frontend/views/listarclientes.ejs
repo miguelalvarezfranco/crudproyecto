@@ -44,6 +44,8 @@
                             <th>ID</th>
                             <th>NOMBRE</th>
                             <th>TELEFONO</th>
+                            <th>CORREO</th>
+                            <th>CONTRASEÑA</th>
                             <th>UBICACION</th>
                             <th>TOTALCOMPRADO</th>
                             <th>HISTORICODECOMPRAS</th>
@@ -64,6 +66,12 @@
                                     <%=elemento.telefono%>
                                 </td>
                                 <td>
+                                    <%=elemento.Correo%>
+                                </td>
+                                <td>
+                                    <%=elemento.password%>
+                                </td>
+                                <td>
                                     <%=elemento.ubicacion%>
                                 </td>
                                 <td>
@@ -74,7 +82,7 @@
                                 </td>
                                     <td>
                                         <button type="button" class="button button1" data-toggle="modal"
-                                            onclick="actuformulario(`<%=elemento._id %>`, `<%=elemento.nombre %>`, `<%=elemento.telefono %>`,`<%=elemento.ubicacion%>`, `<%=elemento.centro%>`,`<%=elemento.totalcomprado%>`,`<%=elemento.historicodecompras%>` )"
+                                            onclick="actuformulario(`<%=elemento._id %>`, `<%=elemento.nombre %>`, `<%=elemento.telefono %>`,`<%=elemento.Correo%>`,`<%=elemento.password%>`,`<%=elemento.ubicacion%>`, `<%=elemento.centro%>`,`<%=elemento.totalcomprado%>`,`<%=elemento.historicodecompras%>` )"
                                             data-target="#update">Actualizar</button>
                                         <a href="eliminar/<%=elemento._id%>" class="button btn-success">eliminar</a>
                                     </td>
@@ -87,6 +95,8 @@
                             <th>ID</th>
                             <th>NOMBRE</th>
                             <th>TELEFONO</th>
+                            <th>CORREO</th>
+                            <th>CONTRASEÑA</th>
                             <th>UBICACION</th>
                             <th>TOTALCOMPRADO</th>
                             <th>HISTORICODECOMPRAS</th>
@@ -120,8 +130,18 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="text">telefono</label>
-                                            <input type="text" class="form-control" id="actualizartelefono"
+                                            <input type="number" class="form-control" id="actualizartelefono"
                                                 name="telefono" placeholder="telefono">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="text">Correo</label>
+                                            <input type="email" class="form-control" id="actualizarcorreo"
+                                                name="Correo" placeholder="Correo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="text">password</label>
+                                            <input type="password" class="form-control" id="actualizarpassword"
+                                                name="password" placeholder="password">
                                         </div>
                                         <div class="form-group">
                                             <label for="text">ubicacion</label>
@@ -162,10 +182,12 @@
 
 
                 <script>
-                    function actuformulario(id, nombre, telefono, ubicacion, totalcomprado, historicodecompras) {
+                    function actuformulario(id, nombre, telefono, Correo,password, ubicacion, totalcomprado, historicodecompras) {
                         actualizarid.value = id;
                         actualizarnombrec.value = nombre;
                         actualizartelefonoc.value = telefono;
+                        actualizarcorreoc.value = Correo;
+                        actualizarpasswordc.value = password;
                         actualizarubicacionc.value = ubicacion;
                         actualizartotalcompradoc.value = totalcomprado;
                         actualizarhistoricodecomprasc.value = historicodecompras;

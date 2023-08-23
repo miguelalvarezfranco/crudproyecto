@@ -1,5 +1,6 @@
 const Cliente = require("../models/cliente");
 const productos = require("../models/productos");
+const usuario = require("../models/usuarios");
 
 // CLIENTES
 exports.cliente = async (req, res) => {
@@ -25,6 +26,8 @@ exports.agregarcliente = (req, res) => {
     _id: req.body.id,
     nombre: req.body.nombre,
     telefono: req.body.telefono,
+    email: req.body.Correo,
+    password: req.body.password,
     ubicacion: req.body.ubicacion,
     centro: req.body.centro,
     totalComprado: req.body.totalcomprado,
@@ -34,16 +37,17 @@ exports.agregarcliente = (req, res) => {
 
   clientes.save();
 
-  // const usuarios = new usuario({
-  //     nombre: cliente.nombre,
-  //     email: cliente.email,
-  //     password: cliente.password,
-  //     rol: cliente.rol,
-  //     habilitado: cliente.habilitado
+  const usuarios = new usuario({
+      nombre: clientes.nombre,
+      email: clientes.email,
+      password: clientes.password,
+      rol: 'clientes',
+      habilitado: true,
+  });
 
-  // })
+  usuarios.save();
 
-  res.redirect("/api/v1/clientes");
+  res.redirect("/clientes");
   console.log("clientes");
 };
 
@@ -51,17 +55,17 @@ exports.eliminar = async (req, res) => {
   const id = req.params.id;
   await Cliente.findByIdAndDelete({ _id: id });
 
-  res.redirect("/api/v1/clientes");
+  res.redirect("/clientes");
 };
 
 exports.actualizarcliente = async (req, res) => {
   const filtro = { _id: req.body.idactualizar };
 
-  const update = { nombre: req.body.nombre, telefono: req.body.telefono, ubicacion: req.body.ubicacion, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras };
+  const update = { nombre: req.body.nombre, telefono: req.body.telefono, email: req.body.Correo, password: req.body.password, ubicacion: req.body.ubicacion, totalcomprado: req.body.totalcomprado, historicodecompras: req.body.historicodecompras };
 
   await Cliente.findOneAndUpdate(filtro, update);
 
-  res.redirect("/api/v1/clientes");
+  res.redirect("/clientes");
 };
 
 // PRODUCTOS

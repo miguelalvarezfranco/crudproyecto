@@ -48,7 +48,7 @@ router.post("/actualizarusuario", rutusu.actualizarusuarios);
 // PAGINA PRINCIPAL
 router.get("/", rutclien.mostrarpagina);
 
-router.post("/inicio");
+router.post("/inicio", rutusu.infoUsuario);
 
 // NODEMAILER
 
