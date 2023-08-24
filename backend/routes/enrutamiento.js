@@ -50,6 +50,8 @@ router.get("/", rutclien.mostrarpagina);
 
 router.post("/inicio", rutusu.infoUsuario);
 
+
+
 // NODEMAILER
 
 router.get("/formcontra", recup.cargarc);
@@ -60,6 +62,5 @@ router.post("/recuperarc", recup.recuperar);
 
 router.get("/descargar");
 
-router.post("/inicio", rutvende.contraUsuario);
 
 module.exports = router;

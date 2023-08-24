@@ -1,4 +1,4 @@
-const usuario = require("../models/usuarios");
+
 const Usuarios = require("../models/usuarios");
 
 // USUARIO
@@ -65,7 +65,7 @@ if(infoUsu.password === contraUsuario){
 }
 
 if(infoUsu.rol === 'vendedor' ){
-  res.redirect("/inicio");
+  res.redirect("inicio");
 }else{
   console.log("El usuario no existe");
 }
