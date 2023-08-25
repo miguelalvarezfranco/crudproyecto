@@ -22,14 +22,14 @@ exports.agregarvendedor = (req, res) => {
   });
 
   vendedor.save();
-  res.redirect("/api/v1/vendedores");
+  res.redirect("vendedores");
   // console.log('vendedores');
 };
 
 exports.eliminarvendedor = async (req, res) => {
   const id = req.params.id;
   await Vendedores.findByIdAndDelete({ _id: id });
-  res.redirect("/api/v1/vendedores");
+  res.redirect("vendedores");
 };
 
 exports.actualizarvendedor = async (req, res) => {
@@ -39,5 +39,5 @@ exports.actualizarvendedor = async (req, res) => {
 
   await Vendedores.findOneAndRemove(filtro, update);
 
-  res.redirect("/api/v1/vendedores");
+  res.redirect("vendedores");
 };

@@ -51,7 +51,6 @@ router.get("/", rutclien.mostrarpagina);
 router.post("/inicio", rutusu.infoUsuario);
 
 
-
 // NODEMAILER
 
 router.get("/formcontra", recup.cargarc);

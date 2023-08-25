@@ -38,13 +38,14 @@
 
     .navbar-brand {
         justify-content: center;
-        margin-left: 26px;
+        margin-left: 250%;
         margin-top: 10px;
-        color: #fff;
+        color: black;
         cursor: pointer;
-        color: #FFFFFF;
-        background: #1ba5e5;
+        color: black;
         width: 300px;
+        font-size: 20px;
+        
     }
 
     .ver-carrito {
@@ -101,6 +102,10 @@
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-black bg-light d-flex justify-content-between">
+
+        <div class="loguito">
+            🏪
+        </div>
         <div>
             <h1 class="navbar-brand">Tienda Virtual Store</h1>  
         </div>
@@ -110,30 +115,6 @@
         <div class="container-fluid">
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            CLIENTES
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/mostrarcliente">Registrar</a></li>
-                            <li><a class="dropdown-item" href="/clientes">Listar</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            VENTAS
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/mostrarventas">Registrar</a></li>
-                            <li><a class="dropdown-item" href="/ventas">Listar</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-
             </div>
             <div class="d-flex justify-content-between">
                 <button class="ver-carrito btn" data-toggle="modal" data-target="#verCarrito"
@@ -161,6 +142,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" onclick="comprar('${elemento.id}')">Comprar💲</button>
+                    <button type="button" class="btn btn-danger" onclick="vaciar() ">VaciarCarrito</button>
                 </div>
             </div>
         </div>
@@ -194,7 +176,7 @@
                             <input type="password" name="password" placeholder="Ingrese su contraseña">
                             <br>
                             <br>
-                            <a href="inicio"><input type="submit" class="btn btn-outline-success"  value="Iniciar Sesión" </a> <br><a
+                            <a href="inicio"><input type="submit" class="btn btn-outline-success"  value="Iniciar Sesión"</a><br><a
                                 href="formcontra">Recuperar Contraseña</a><br><br> 
                             <br>
                             <br>
@@ -378,9 +360,16 @@
                 }
 
                 function comprar(id) {
-                    alert("su producto fue comprado satisfactoriamente");
-
+                    
                 }
+
+            function vaciar () {
+
+                const bodycarrito = document.getElementById('body-carrito');
+                bodycarrito.innerHTML = '';
+                localStorage.clear();
+            }
+
 
                 
 

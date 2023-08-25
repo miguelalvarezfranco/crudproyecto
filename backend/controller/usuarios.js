@@ -1,5 +1,6 @@
 
 const Usuarios = require("../models/usuarios");
+const productos = require("../models/productos");
 
 // USUARIO
 exports.usuario = async (req, res) => {
@@ -56,6 +57,8 @@ res.redirect("/usuarios");
 exports.infoUsuario = async (req, res) => {
 const infoUsu = await Usuarios.findOne({ email: req.body.Correo });
 
+const catalogo = await productos.find();
+
 console.log(infoUsu);
 
 const contraUsuario = req.body.password
@@ -65,17 +68,9 @@ if(infoUsu.password === contraUsuario){
 }
 
 if(infoUsu.rol === 'vendedor' ){
-  res.redirect("inicio");
-}else{
-  console.log("El usuario no existe");
+  res.render("inicio");
+}else if(infoUsu.rol === 'clientes'){
+  res.render('paginaprincipal' ,{producto: catalogo});
 }
-
-
-
-  // if (req.body.email === infoUsu.password) {
-  //   res.redirect("paginaprincipal");
-  // } else {
-  //   console.log("el usuario no existe");
-  // }
 
 };
