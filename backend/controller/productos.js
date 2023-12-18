@@ -1,19 +1,20 @@
 const { mongoose } = require("mongoose");
-// const Producto = require("../models/productos");
 const Productos = require("../models/productos");
 
 exports.producto = async (req, res) => {
   const listaproducto = await Productos.find();
-  // console.log(listaproducto);
 
-  res.render("listarproductos", {
+  res.render("listarproductos",{
 
     producto: listaproducto
   });
 };
+
+
 exports.mostrarproducto = (req, res) => { // render asocia un documento que contiene lo que va mostarr al usuario  //
   res.render("mostrarproducto");
 };
+
 
 exports.agregarproducto = (req, res) => {
   const producto = new Productos({

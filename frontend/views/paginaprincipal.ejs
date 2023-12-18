@@ -120,7 +120,7 @@
                 <button class="ver-carrito btn" data-toggle="modal" data-target="#verCarrito"
                     onclick="pintarCarrito()">🛒 <span id="cantidadCarrito" class="cantidadCarrito"></span> </button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal"
-                    style="margin-right: 20px; width: 100px; " >
+                    style="margin-right: 20px; width: 100px;" >
                     iniciar sesion
                 </button>
             </div> 
@@ -191,7 +191,6 @@
 
         </div>
     </div>
-    </div>
 
     <br>
     <br>
@@ -212,7 +211,7 @@
                 </p>
 
                 <button type="button" style="border-radius: 15px; padding: 12px; "
-                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.nombre%>`,`<%=elemento.precio%>`)">Añadir
+                    onclick="Carrito(`<%=elemento.id%>`,`<%=elemento.imagen%>`,`<%=elemento.titulo%>`,`<%=elemento.precio%>`)">Añadir
                     Al Carrito</button>
             </div>
         </div>
@@ -225,7 +224,7 @@
                 let body = document.getElementById('body-carrito')
 
 
-                function Carrito(id, imagen, nombre, precio) {
+                function Carrito(id, imagen, titulo, precio) {
 
                     const repeat = carritoCompras.some((repeatid) => repeatid.id === id);
 
@@ -240,7 +239,7 @@
                         carritoCompras.push({
                             id: id,
                             imagen: imagen,
-                            nombre: nombre,
+                            titulo: titulo,
                             precio: precio,
                             cantidad: 1,
                         });
@@ -372,11 +371,6 @@
 
 
                 
-
-
-
-
-
             </script>
 
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

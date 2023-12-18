@@ -11,6 +11,8 @@ exports.usuario = async (req, res) => {
     usuario: listausuario,
   });
 };
+
+
 exports.mostrarusuarios = (req, res) => {
   // render asocia un documento que contiene lo que va mostarr al usuario  //
   res.render("mostrarusuarios");
